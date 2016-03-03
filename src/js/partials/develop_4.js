@@ -1,38 +1,35 @@
 try{
 
     function sliderInput(){
-        var maxx,minn,step,val;
-        var input = {}
 
-        $('.slider-inp-item').each(function() {
-                input.max = $(this).data('max'),
-                input.min = $(this).data('min'),
-                input.step = $(this).data('step'),
-                input.val = $(this).val();
+        var input = [];
+
+        $('.slider-inp-item').each(function(index) {
+                input[index] = {
+                    max:$(this).data('max'),
+                    min:$(this).data('min'),
+                    step:$(this).data('step'),
+                    val:$(this).val(),
+                    orientation:$(this).data('orientation')
+                };
         });
 
-        $('.slider-item').each(function() {
-            var shit = $(this).data('hui');
-            console.log(val);
+        $('.slider-item').each(function(index) {
+
+
             $(this).slider({
                 range: "max",
-                min: min,
-                max: max,
-                step: step,
-                value: val,
+                min: input[index].min,
+                max: input[index].max,
+                step: input[index].step,
+                value: input[index].val,
+                orientation:input[index].orientation,
                 slide: function( event, ui ) {
-                    $('.slide-input-item[data-hui='+shit+']').find('input[type=text]').val( ui.value);
+                    $('.slide-input-item[data-slider='+index+']').find('input[type=text]').val( ui.value);
                 }
             });
 
-            //$('.slide-input-item[data-hui='+shit+']').find('input[type=text]').val( $(this).slider("value") );
-            console.log('go');
         });
-
-
-
-
-            //$(this).parent().find('input[type=text]').val( numberWithSpaces( $(this).slider("value") ) );
 
     }
 
