@@ -1,0 +1,16 @@
+.calculator-top{
+    .title-text{ font-size: 24px; font-family: "SegoeUI"; color: rgb(21, 137, 204);  line-height: 1.2; text-align: left; font-weight: 400;}
+    .super-spis{ position: relative; display: flex; justify-content: space-around; flex-wrap: wrap; align-items: center;
+        li{display: block; padding: 0 5px;}
+        input{visibility: hidden; }
+        label{cursor: pointer; background-color: white;
+            .cont{display: block; width: 180px; height: 80px; border: 1px solid #e8e8e8;   z-index: 5; overflow: hidden;position: relative; background-color: white;
+                .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid transparent; transition: all 0.5s;}
+                img{ position: absolute; left: 50%; transform: translateX(-50%); z-index: -1;}
+            }
+            .cont:hover, input:checked ~ .cont{border: 1px solid #fdd30d;
+                .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid #fdd30d; }
+            }
+        }
+    }
+}
