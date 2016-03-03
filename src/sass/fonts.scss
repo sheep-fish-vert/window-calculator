@@ -19,7 +19,7 @@
 
 @include font-face('SegoeUI', 'SegoeUILight', 300);
 @include font-face('SegoeUI', 'SegoeUIItalic', 400, italic);
-@include font-face('SegoeUI', 'SegoeUIRegular', 400);
+@include font-face('SegoeUI', 'SegoeUIRegular');
 @include font-face('SegoeUI', 'SegoeUISemiBold', 600);
 
 
