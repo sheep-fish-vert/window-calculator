@@ -33,6 +33,8 @@
     }
 }
 
+// -------------------------------------------------------------------------------------------
+
 .container-fluid{ background-color: #f1f5f9;}
 .container{ background-color: white;}
 
@@ -41,6 +43,10 @@
     .contact-form-item{padding-top: 30px; padding-bottom: 30px;}
     .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 10px;}
 
+    .slide-input{ padding-top: 20px; width: 285px; margin: 0 auto; display: flex; justify-content: space-between;
+        .slide-input-item{display: inline-block; text-align: left;}
+        input{width: 100px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 10px;}
+    }
 }
 
 .form_input{width: 285px; margin: 0 auto;
