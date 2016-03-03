@@ -7,7 +7,7 @@
                 &.active{display: block;}
             }
         }
-        .slide-input{text-align: center;padding-top: 10px;
+        .slide-input{text-align: center;padding-top: 25px;
             &>*{display: inline-block;vertical-align: bottom;}
             p{padding-bottom: 4px;}
             .slide-input-item{margin: 0 5px;}
@@ -16,11 +16,27 @@
         }
 
         .slider-wrap{position: relative;max-width: 300px;width: 100%;margin: 0 auto;
-            .slider-item{position: absolute;
-                &.ui-slider-horizontal{width: 100%;left: 0;}
-                &.ui-slider-vertical{left: 100%;height: 300px;bottom: 50px;}
+            .slider-item{position: absolute;border:none;background-color: #0094f2;border-radius: 0;
+                &.ui-slider-horizontal{width: 100%;left: 0;height: 2px;
+                    &.ui-slider{
+                        .ui-slider-handle{top:-13px;}
+                    }
+                }
+                &.ui-slider-vertical{left: 100%;height: 300px;bottom: 50px;width: 2px;
+                    &.ui-slider{
+                        .ui-slider-handle{left:-13px;}
+                    }
+                }
+                &.ui-slider-range-max{background-color: #e5e5e5;}
+                &.ui-slider{
+                    .ui-slider-handle{width: 26px;height: 26px;border-radius: 50%;border: none;background: rgb(91,188,250);background: -moz-linear-gradient(top, rgba(91,188,250,1) 1%, rgba(5,150,242,1) 100%);background: -webkit-linear-gradient(top, rgba(91,188,250,1) 1%,rgba(5,150,242,1) 100%);background: linear-gradient(to bottom, rgba(91,188,250,1) 1%,rgba(5,150,242,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5bbcfa', endColorstr='#0596f2',GradientType=0 );
+                        &:before{content: '';display: block;position: absolute;width: 16px;height: 16px;border-radius: 50%;border:2px solid #fff;left: calc(50% - 8px);top:calc(50% - 8px);}
+                    }
+                }
             }
         }
+
+
     }
 
 /* /calculator-left */
