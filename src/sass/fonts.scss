@@ -17,7 +17,10 @@
 /* fonts */
 //  example -> @include font-face('PFDinTextPro', 'PFDinTextPro-Bold', 700, italic);
 
-@include font-face('slick');
+@include font-face('SegoeUI', 'SegoeUILight', 300);
+@include font-face('SegoeUI', 'SegoeUIItalic', 400, italic);
+@include font-face('SegoeUI', 'SegoeUIRegular', 400);
+@include font-face('SegoeUI', 'SegoeUISemiBold', 600);
 
 
 /* /fonts*/
