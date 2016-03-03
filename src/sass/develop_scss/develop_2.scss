@@ -36,8 +36,9 @@
 .container-fluid{ background-color: #f1f5f9;}
 .container{ background-color: white;}
 
-.calculator-right{ width: 50%; border: 1px solid #e8e8e8;
-    .contact-form-item{padding-top: 30px;}
+.calculator-right{ width: 50%;  padding-top: 40px; padding-bottom: 40px;
+    .contact-form-row {border: 1px solid #e8e8e8;}
+    .contact-form-item{padding-top: 30px; padding-bottom: 30px;}
     .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 10px;}
 
 }
