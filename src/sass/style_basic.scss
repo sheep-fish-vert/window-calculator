@@ -43,4 +43,7 @@ a[href] {
   text-decoration: underline;
   &:hover,&:active{text-decoration: none;}
 }
+
+.calculator-body{display: flex;justify-content:space-between;}
+
 /*End Layout*/
