@@ -5,7 +5,7 @@ try{
     });
 
     $(window).load(function(){
-
+        $('select').styler();
     });
 
     $(window).resize(function(){
