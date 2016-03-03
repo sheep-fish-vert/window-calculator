@@ -18,11 +18,69 @@
 }
 @media screen and (max-width: 767px){
 
+    /* calculator-tabs */
+
+        .calculator-tabs{
+            .calculator-tabs-main{
+                .calculator-tabs-item{width: calc(50% - 5px);margin-bottom: 10px;
+                    &:first-child, &:last-child, &:nth-child(3), &:nth-child(2){
+                        .calculator-tabs-windows{width: 100%;}
+                    }
+                    &:nth-child(1), &:nth-child(2){
+                        .calculator-tabs-windows{top: calc(50% - 10px);}
+                    }
+                    &:nth-child(3), &:nth-child(4){
+                        .calculator-tabs-windows{top:calc(100% - 10px);}
+                    }
+                    &:nth-child(1), &:nth-child(3){
+                        .calculator-tabs-windows{left:0;right:auto;
+                            ul{justify-content:flex-start;}
+                        }
+                    }
+                    &:nth-child(2), &:nth-child(4){
+                        .calculator-tabs-windows{right:0;left:auto;
+                            ul{justify-content:flex-end;}
+                        }
+                    }
+                }
+            }
+        }
+
+    /* /calculator-tabs */
+
 }
 @media screen and (max-width: 666px){
 
 }
 @media screen and (max-width: 479px){
+
+    /* calculator-tabs */
+
+        .calculator-tabs{
+            .calculator-tabs-main{
+                .calculator-tabs-item{width: 100%;
+                    &:first-child, &:last-child, &:nth-child(3), &:nth-child(2){
+                        .calculator-tabs-windows{left:0;right:auto;
+                            ul{justify-content:flex-start;}
+                        }
+                    }
+                    &:first-child{
+                        .calculator-tabs-windows{top:calc(25% - 10px);}
+                    }
+                    &:nth-child(2){
+                        .calculator-tabs-windows{top:calc(50% - 10px);}
+                    }
+                    &:nth-child(3){
+                        .calculator-tabs-windows{top:calc(75% - 10px);}
+                    }
+                    &:last-child{
+                        .calculator-tabs-windows{top:calc(100% - 10px);}
+                    }
+                }
+            }
+        }
+
+    /* /calculator-tabs */
 
 }
 @media screen and (max-width: 320px){
