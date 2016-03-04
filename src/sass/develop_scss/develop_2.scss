@@ -55,6 +55,7 @@
 
 .form_input{width: 285px; margin: 0 auto;
     .jq-selectbox{border: 1px solid #e8e8e8; border-radius: 4px; width: 100%; height: 30px; cursor: pointer;
+        .jq-selectbox__dropdown{background-color: white;}
         .jq-selectbox__select-text{line-height: 30px; padding-left: 10px;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;    padding-left: 19px;}
         .jq-selectbox__dropdown{ width: 100%; border: 1px solid #e8e8e8; border-radius: 4px;
             ul { margin-bottom: 0; padding: 2px 0;
