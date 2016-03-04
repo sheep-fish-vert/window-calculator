@@ -16,21 +16,25 @@
 @media screen and (max-width: 992px){
     .calculator-top .super-spis li { padding: 0 5px;}
     .calculator-body{display: block;}
-    .calculator-left, .calculator-right {  width: 100%; padding-top: 20px;  padding-bottom: 20px; padding-left: 15px;   padding-right: 15px;}
+    .calculator-left, .calculator-right {display: block;  width: 100%; padding-top: 20px;  padding-bottom: 20px; padding-left: 15px;   padding-right: 15px;}
+    .calc-checks { padding-top: 25px; padding-bottom: 25px;}
+    .form_input {min-width: 285px; width: 90%; max-width: 500px;}
 }
 @media screen and (max-width: 767px){
 
 }
 @media screen and (max-width: 666px){
+    .foot-form .contact-form-row .contact-form-item-input .form_input input{box-sizing: border-box !important;}
+    .foot-form .contact-form-row{width: 100%; text-align: center;}
 
 }
 @media screen and (max-width: 479px){
     .calculator-left, .calculator-right, .foot-form{padding: 10px 5px;}
-    .calculator-right .form_input {width: 95%;}
+    .calculator-right .form_input {width: 95%; min-width: 95%;}
     .calculator-right .slide-input {width: 90%;
         input { width: 75px;}
     }
-    .calculator-footer .form_input { width: 100%;}
+    .calculator-footer .form_input { width: 100%; min-width: 95%;}
     .calc-checks .form_input { display: block; float: none; width: 100%;}
     .calc-checks { padding-top: 25px; padding-bottom: 25px; max-height: none;}
     .calc-price .box-2-box { display: block; width: 100%; line-height: 50px;}

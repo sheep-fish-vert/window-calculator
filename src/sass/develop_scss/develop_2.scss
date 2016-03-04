@@ -2,7 +2,7 @@
     .title-text{ font-size: 24px; font-family: "SegoeUI"; color: rgb(21, 137, 204);  line-height: 1.2; text-align: left; font-weight: 400;}
     .super-spis{ position: relative; display: flex; justify-content: space-around; flex-wrap: wrap; align-items: center;
         li{display: block; padding: 0 0px;}
-        input{visibility: hidden; }
+        input{visibility: hidden; width: 0; height: 0; position: absolute;}
         label{cursor: pointer; background-color: white;
             .cont{display: block; width: 180px; height: 80px; border: 1px solid #e8e8e8;   z-index: 5; overflow: hidden;position: relative; background-color: white;
                 .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid transparent; transition: all 0.5s;}
@@ -38,7 +38,7 @@
 .container-fluid{ background-color: #f1f5f9;}
 .container{ background-color: white;}
 
-.calculator-right{ width: 50%;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;
+.calculator-right{ width: 50%; display: table-cell;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;vertical-align: bottom;
     .contact-form-row {border: 1px solid #e8e8e8; padding-bottom: 29px;}
     .contact-form-item{padding-top: 8px; padding-bottom: 10px;}
     .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; font-weight: 600; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 8px;}
