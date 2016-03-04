@@ -2,7 +2,7 @@ try{
 
     $(document).ready(function(){
         $('.row-tool li').click(function() {
-            console.log($(this).index());
+
             $('.cactuz').addClass('none-visible');
 
             if ($(this).index() == 0) {
@@ -14,6 +14,13 @@ try{
             if ($(this).index() == 2) {
                 $('.family3').removeClass('none-visible');
             };
+            if ($(this).index() == 3) {
+                $('.family4').removeClass('none-visible');
+            };
+            if ($(this).index() == 4) {
+                $('.family5').removeClass('none-visible');
+            };
+
             $('#izdelie2').trigger('refresh');
         });
     });
