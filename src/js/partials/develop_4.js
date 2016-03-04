@@ -26,6 +26,7 @@ try{
                 orientation:input[index].orientation,
                 slide: function( event, ui ) {
                     $('.slide-input-item[data-slider='+index+']').find('input[type=text]').val( ui.value);
+                    calcLogic();
                 }
             });
 
@@ -33,10 +34,22 @@ try{
 
     }
 
+    /* calculator logic */
 
+    function calcLogic(){
+
+
+
+    }
+
+    /* /calculator logic */
 
     $(document).ready(function(){
+
         sliderInput();
+
+        calcLogic();
+
     });
 
     $(window).load(function(){
