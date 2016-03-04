@@ -1,7 +1,11 @@
 try{
 
-    $(document).ready(function(){
+    function rowLiClick(){
+
         $('.row-tool li').click(function() {
+
+            $('.row-tool li').removeClass('active');
+            $(this).addClass('active');
 
             $('.cactuz').addClass('none-visible');
 
@@ -22,7 +26,17 @@ try{
             };
 
             $('#izdelie2').trigger('refresh');
+            calcLogic(); //develop4.js
         });
+
+        $('.row-tool li').eq(0).click();
+
+    };
+
+    $(document).ready(function(){
+
+        rowLiClick();
+
     });
 
     $(window).load(function(){

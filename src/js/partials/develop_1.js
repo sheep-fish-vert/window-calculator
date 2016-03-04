@@ -6,7 +6,6 @@ try{
 
             var itemIndex = $(this).parent().index();
             var parentIndex = $(this).parents('.calculator-tabs-item').index();
-            console.log(parentIndex+', '+itemIndex);
 
             $('.calculator-tabs-windows li').removeClass('active');
             $('.calculator-tabs-item').removeClass('active');
