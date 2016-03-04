@@ -19,7 +19,7 @@
     .conteiner{ display: flex; display: flex; justify-content: center; flex-wrap: wrap; align-items: center; min-height: 145px; border: 1px solid #e8e8e8; padding: 30px 0;
         .contact-form-row{
             .form_input{ padding: 20px 10px;
-                input{outline: none; border: 1px solid #e8e8e8; width: 210px; height: 40px; text-indent: 20px;  font-size: 18px; font-family: "SegoeUI", sans-serif;color: rgb(89, 89, 89);}
+                input{outline: none; border: 1px solid #e8e8e8; width: 210px; height: 40px; text-indent: 20px;  font-size: 18px; font-family: "SegoeUI", sans-serif;color: rgb(89, 89, 89); width: 100%;}
                 ::-webkit-input-placeholder {color: rgb(89, 89, 89);}
                 ::-moz-placeholder          {color: rgb(89, 89, 89);}
                 :-moz-placeholder           {color: rgb(89, 89, 89);}
@@ -38,20 +38,24 @@
 .container-fluid{ background-color: #f1f5f9;}
 .container{ background-color: white;}
 
-.calculator-right{ width: 50%;  padding-top: 40px; padding-bottom: 40px;
-    .contact-form-row {border: 1px solid #e8e8e8;}
-    .contact-form-item{padding-top: 30px; padding-bottom: 30px;}
-    .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 10px;}
+.calculator-right{ width: 50%;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;
+    .contact-form-row {border: 1px solid #e8e8e8; padding-bottom: 29px;}
+    .contact-form-item{padding-top: 8px; padding-bottom: 10px;}
+    .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; font-weight: 600; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 8px;}
 
     .slide-input{ padding-top: 20px; width: 285px; margin: 0 auto; display: flex; justify-content: space-between;
         .slide-input-item{display: inline-block; text-align: left;}
-        input{width: 100px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 10px;}
+        input{width: 120px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 19px;}
+        ::-webkit-input-placeholder {color: #4f4f4f;}
+        ::-moz-placeholder          {color: #4f4f4f;}
+        :-moz-placeholder           {color: #4f4f4f;}
+        :-ms-input-placeholder      {color: #4f4f4f;}
     }
 }
 
 .form_input{width: 285px; margin: 0 auto;
     .jq-selectbox{border: 1px solid #e8e8e8; border-radius: 4px; width: 100%; height: 30px; cursor: pointer;
-        .jq-selectbox__select-text{line-height: 30px; padding-left: 10px;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;}
+        .jq-selectbox__select-text{line-height: 30px; padding-left: 10px;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;    padding-left: 19px;}
         .jq-selectbox__dropdown{ width: 100%; border: 1px solid #e8e8e8; border-radius: 4px;
             ul { margin-bottom: 0; padding: 2px 0;
                 li { padding-left: 10px; cursor: pointer;background-color: white; transition: all 0.5s;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;
@@ -66,18 +70,30 @@
         }
     }
 }
-.Однокамерный {
-  font-size: 14px;
-  font-family: "Segoe UI";
-  color: rgb(89, 89, 89);
-  line-height: 2.143;
-  text-align: left;
-  position: absolute;
-  left: 1074px;
-  top: 1207.098px;
-  z-index: 154;
+
+.wonderfull-check{
+    label{ cursor: pointer; padding-left: 33px; padding-top: 7px; font-size: 14px;  font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89); line-height: 2.143; font-weight: 400; position: relative;
+        input{ visibility: hidden;}
+        span{
+            &:before{ content: ''; width: 20px; height: 20px; border: 1px solid #bdbdbd; border-radius: 50%; position: absolute; top: 13px; left: 20px; transition: all 0.3s;}
+        }
+        input:checked ~ span{
+            &:before{ border: none; background-image: url(../images/checked.png);}
+        }
+
+    }
+}
+// --------------------------------------------------------------------------------------------------
+
+.calc-window{padding-bottom: 58px; padding-top: 40px;}
+
+.calc-checks{border-top: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8; padding-top: 25px; max-height: 131px;
+    .form_input{display:block; float: left; width: 50%; padding-left: 22px; }
 }
 
+.calc-price{display: table; width: 100%; min-height: 55px;
+    .cena-block{ color: rgb(89, 89, 89); border: 1px solid #e8e8e8;}
+    .calc-block{color: rgb(255, 255, 255); border: 2px solid rgb(53, 177, 247); border-color: rgb(53, 177, 247);background-image: -moz-linear-gradient( 90deg, rgb(4,158,244) 0%, rgb(104,196,251) 100%); background-image: -webkit-linear-gradient( 90deg, rgb(4,158,244) 0%, rgb(104,196,251) 100%); background-image: -ms-linear-gradient( 90deg, rgb(4,158,244) 0%, rgb(104,196,251) 100%);  box-shadow: 0px 2px 5.76px 0.24px rgba(0, 0, 0, 0.17);}
+    .box-2-box{width: 50%; display: table-cell;vertical-align: middle; text-align: center; font-size: 24px; font-family: "SegoeUI", sans-serif; line-height: 1.2; font-weight: 600;}
 
-
-
+}

@@ -15,6 +15,8 @@
 }
 @media screen and (max-width: 992px){
     .calculator-top .super-spis li { padding: 0 5px;}
+    .calculator-body{display: block;}
+    .calculator-left, .calculator-right {  width: 100%; padding-top: 20px;  padding-bottom: 20px; padding-left: 15px;   padding-right: 15px;}
 }
 @media screen and (max-width: 767px){
 
@@ -23,7 +25,15 @@
 
 }
 @media screen and (max-width: 479px){
-    .foot-form{padding: 10px 5px;}
+    .calculator-left, .calculator-right, .foot-form{padding: 10px 5px;}
+    .calculator-right .form_input {width: 95%;}
+    .calculator-right .slide-input {width: 90%;
+        input { width: 75px;}
+    }
+    .calculator-footer .form_input { width: 100%;}
+    .calc-checks .form_input { display: block; float: none; width: 100%;}
+    .calc-checks { padding-top: 25px; padding-bottom: 25px; max-height: none;}
+    .calc-price .box-2-box { display: block; width: 100%; line-height: 50px;}
 
 }
 @media screen and (max-width: 320px){
