@@ -3,7 +3,7 @@
 //= partials/plagins/maskInput.js
 
 //= partials/plagins/device.js
-
+//= partials/plagins/jquery.validate.min.js
 //= partials/plagins/jquery.formstyler.min.js
 //= partials/plagins/jquery-ui.min.js
 

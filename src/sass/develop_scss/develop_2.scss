@@ -1,89 +1,110 @@
-.calculator-top{
-    .title-text{ font-size: 24px; font-family: "SegoeUI"; color: rgb(21, 137, 204);  line-height: 1.2; text-align: left; font-weight: 400;}
-    .super-spis{ position: relative; display: flex; justify-content: space-around; flex-wrap: wrap; align-items: center;
-        li{display: block; padding: 0 0px;}
-        input{visibility: hidden; width: 0; height: 0; position: absolute;}
-        label{cursor: pointer; background-color: white;
-            .cont{display: block; width: 180px; height: 80px; border: 1px solid #e8e8e8;   z-index: 5; overflow: hidden;position: relative; background-color: white;
-                .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid transparent; transition: all 0.5s;}
-                img{ position: absolute; left: 50%; transform: translateX(-50%); z-index: -1;}
-            }
-            .cont:hover, input:checked ~ .cont{border: 1px solid #fdd30d;
-                .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid #fdd30d; }
-            }
-        }
-    }
-}
+/* calculator-top */
 
-.foot-form{padding: 10px 15px;
-    .conteiner{ display: flex; display: flex; justify-content: center; flex-wrap: wrap; align-items: center; min-height: 145px; border: 1px solid #e8e8e8; padding: 30px 0;
-        .contact-form-row{
-            .form_input{ padding: 20px 10px;
-                input{outline: none; border: 1px solid #e8e8e8; width: 210px; height: 40px; text-indent: 20px;  font-size: 18px; font-family: "SegoeUI", sans-serif;color: rgb(89, 89, 89); width: 100%;}
-                ::-webkit-input-placeholder {color: rgb(89, 89, 89);}
-                ::-moz-placeholder          {color: rgb(89, 89, 89);}
-                :-moz-placeholder           {color: rgb(89, 89, 89);}
-                :-ms-input-placeholder      {color: rgb(89, 89, 89);}
+    .calculator-top{
+        .title-text{ font-size: 24px; font-family: "SegoeUI"; color: rgb(21, 137, 204);  line-height: 1.2; text-align: left; font-weight: 400;}
+        .super-spis{ position: relative; display: flex; justify-content: space-around; flex-wrap: wrap; align-items: center;
+            li{display: block; padding: 0 0px;}
+            input{visibility: hidden; width: 0; height: 0; position: absolute;}
+            label{cursor: pointer; background-color: white;
+                .cont{display: block; width: 180px; height: 80px; border: 1px solid #e8e8e8;   z-index: 5; overflow: hidden;position: relative; background-color: white;
+                    .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid transparent; transition: all 0.5s;}
+                    img{ position: absolute; left: 50%; transform: translateX(-50%); z-index: -1;}
+                }
+                .cont:hover, input:checked ~ .cont{border: 1px solid #fdd30d;
+                    .border{position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 5px solid #fdd30d; }
+                }
             }
         }
-        .buton-row{padding: 0 20px;}
-        .buton{width: 225px; height: 55px; background-color: #fd444a; border: none; color: white;font-size: 18px; font-family: "SegoeUI", sans-serif;  font-weight: 600; transition: all 0.5s;
-            &:hover{background-color: #D3292E;}
+    }
+
+/* /calculator-top */
+
+/* calculator-footer */
+
+    .foot-form{padding: 10px 15px;
+        .conteiner{ display: flex; display: flex; justify-content: center; flex-wrap: wrap; align-items: center; min-height: 145px; border: 1px solid #e8e8e8; padding: 30px 0;
+            .contact-form-row{
+                .form_input{ padding: 20px 10px;
+                    input{outline: none; border: 1px solid #e8e8e8; width: 210px; height: 40px; text-indent: 20px;  font-size: 18px; font-family: "SegoeUI", sans-serif;color: rgb(89, 89, 89); width: 100%;
+                        &.error{border-color:#b20000;box-shadow: 0 0 5px 0 rgba(178, 0, 0, .5);}
+                        &::-webkit-input-placeholder {color: rgb(89, 89, 89);}
+                        &::-moz-placeholder          {color: rgb(89, 89, 89);}
+                        &:-moz-placeholder           {color: rgb(89, 89, 89);}
+                        &:-ms-input-placeholder      {color: rgb(89, 89, 89);}
+                    }
+
+                    label{position: absolute;width: 0;height: 0;overflow: hidden;font-size: 0;color: transparent;}
+                }
+            }
+            .buton-row{padding: 0 20px;}
+            .buton{width: 225px; height: 55px; background-color: #fd444a; border: none; color: white;font-size: 18px; font-family: "SegoeUI", sans-serif;  font-weight: 600; transition: all 0.5s;
+                &:hover{background-color: #D3292E;}
+            }
         }
     }
-}
+
+/* /calculator-footer */
 
 // -------------------------------------------------------------------------------------------
 
 .container-fluid{ background-color: #f1f5f9;}
 .container{ background-color: white;}
 
-.calculator-right{ width: 50%; display: table-cell;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;vertical-align: top;
-    .contact-form-row {border: 1px solid #e8e8e8; padding-bottom: 29px;}
-    .contact-form-item{padding-top: 8px; padding-bottom: 10px;}
-    .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; font-weight: 600; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 8px;}
+/* calculator-right */
 
-    .slide-input{ padding-top: 20px; width: 285px; margin: 0 auto; display: flex; justify-content: space-between;
-        .slide-input-item{display: inline-block; text-align: left;}
-        input{width: 120px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 19px;}
-        ::-webkit-input-placeholder {color: #4f4f4f;}
-        ::-moz-placeholder          {color: #4f4f4f;}
-        :-moz-placeholder           {color: #4f4f4f;}
-        :-ms-input-placeholder      {color: #4f4f4f;}
+    .calculator-right{ width: 50%; display: table-cell;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;vertical-align: top;
+        .contact-form-row {border: 1px solid #e8e8e8; padding-bottom: 29px;}
+        .contact-form-item{padding-top: 8px; padding-bottom: 10px;}
+        .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; font-weight: 600; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 8px;}
+
+        .slide-input{ padding-top: 20px; width: 285px; margin: 0 auto; display: flex; justify-content: space-between;
+            .slide-input-item{display: inline-block; text-align: left;}
+            input{width: 120px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 19px;}
+            ::-webkit-input-placeholder {color: #4f4f4f;}
+            ::-moz-placeholder          {color: #4f4f4f;}
+            :-moz-placeholder           {color: #4f4f4f;}
+            :-ms-input-placeholder      {color: #4f4f4f;}
+        }
     }
-}
 
-.form_input{width: 285px; margin: 0 auto;
-    .jq-selectbox{border: 1px solid #e8e8e8; border-radius: 4px; width: 100%; height: 30px; cursor: pointer;
-        .jq-selectbox__dropdown{background-color: white;}
-        .jq-selectbox__select-text{line-height: 30px; padding-left: 10px;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;    padding-left: 19px;}
-        .jq-selectbox__dropdown{ width: 100%; border: 1px solid #e8e8e8; border-radius: 4px;
-            ul { margin-bottom: 0; padding: 2px 0;
-                li { padding-left: 10px; cursor: pointer;background-color: white; transition: all 0.5s;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;
-                    &:hover{background-color: #8FC6E3; }
+    .form_input{width: 285px; margin: 0 auto;
+        .jq-selectbox{border: 1px solid #e8e8e8; border-radius: 4px; width: 100%; height: 30px; cursor: pointer;
+            .jq-selectbox__dropdown{background-color: white;}
+            .jq-selectbox__select-text{line-height: 30px; padding-left: 10px;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;    padding-left: 19px;}
+            .jq-selectbox__dropdown{ width: 100%; border: 1px solid #e8e8e8; border-radius: 4px;
+                ul { margin-bottom: 0; padding: 2px 0;
+                    li { padding-left: 10px; cursor: pointer;background-color: white; transition: all 0.5s;font-size: 14px; font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89);   line-height: 2.143; text-align: left;
+                        &:hover{background-color: #8FC6E3; }
+                    }
                 }
             }
-        }
-        .jq-selectbox__trigger{ position: absolute; width: 26px; top: -1px; bottom: 1px; border-radius: 4px; right: 0; cursor: pointer;
-            background: rgba(104,196,244,1); background: -moz-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%); background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(104,196,244,1)), color-stop(100%, rgba(4,158,244,1)));background: -webkit-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);background: -o-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);background: -ms-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);background: linear-gradient(to bottom, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68c4f4', endColorstr='#049ef4', GradientType=0 );
-            &:before{content: ''; position: absolute; width: 0; height: 0; border-style: solid; border-width: 0 4px 7px 4px; border-color: transparent transparent white transparent; top: 5px;  right: 9px;}
-            &:after{content: ''; position: absolute;width: 0; height: 0;border-style: solid; border-width: 7px 4px 0 4px; border-color: white transparent transparent transparent; bottom: 5px; right: 9px;}
+            .jq-selectbox__trigger{ position: absolute; width: 26px; top: -1px; bottom: 1px; border-radius: 4px; right: 0; cursor: pointer;
+                background: rgba(104,196,244,1); background: -moz-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%); background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(104,196,244,1)), color-stop(100%, rgba(4,158,244,1)));background: -webkit-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);background: -o-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);background: -ms-linear-gradient(top, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);background: linear-gradient(to bottom, rgba(104,196,244,1) 0%, rgba(4,158,244,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68c4f4', endColorstr='#049ef4', GradientType=0 );
+                &:before{content: ''; position: absolute; width: 0; height: 0; border-style: solid; border-width: 0 4px 7px 4px; border-color: transparent transparent white transparent; top: 5px;  right: 9px;}
+                &:after{content: ''; position: absolute;width: 0; height: 0;border-style: solid; border-width: 7px 4px 0 4px; border-color: white transparent transparent transparent; bottom: 5px; right: 9px;}
+            }
         }
     }
-}
 
-.wonderfull-check{
-    label{ cursor: pointer; padding-left: 33px; padding-top: 7px; font-size: 14px;  font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89); line-height: 2.143; font-weight: 400; position: relative;
-        input{ visibility: hidden;}
-        span{
-            &:before{ content: ''; width: 20px; height: 20px; border: 1px solid #bdbdbd; border-radius: 50%; position: absolute; top: 13px; left: 20px; transition: all 0.3s;}
-        }
-        input:checked ~ span{
-            &:before{ border: none; background-image: url(../images/checked.png);}
-        }
+/* /calculator-right */
 
+/* checkbox-styled */
+
+    .wonderfull-check{
+        label{ cursor: pointer; padding-left: 33px; padding-top: 7px; font-size: 14px;  font-family: "SegoeUI", sans-serif; color: rgb(89, 89, 89); line-height: 2.143; font-weight: 400; position: relative;
+            input{ visibility: hidden;}
+            span{
+                &:before{ content: ''; width: 20px; height: 20px; border: 1px solid #bdbdbd; border-radius: 50%; position: absolute; top: 13px; left: 20px; transition: all 0.3s;}
+            }
+            input:checked ~ span{
+                &:before{ border: none; background-image: url(../images/checked.png);}
+            }
+
+        }
     }
-}
+
+/* /checkbox-styled */
+
 // --------------------------------------------------------------------------------------------------
 
 .calc-window{padding-bottom: 58px; padding-top:100px;}
