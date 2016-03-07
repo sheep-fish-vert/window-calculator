@@ -38,7 +38,7 @@
 .container-fluid{ background-color: #f1f5f9;}
 .container{ background-color: white;}
 
-.calculator-right{ width: 50%; display: table-cell;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;vertical-align: bottom;
+.calculator-right{ width: 50%; display: table-cell;  padding-top: 40px; padding-bottom: 40px; padding-left: 19px;padding-right: 1px;vertical-align: top;
     .contact-form-row {border: 1px solid #e8e8e8; padding-bottom: 29px;}
     .contact-form-item{padding-top: 8px; padding-bottom: 10px;}
     .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; font-weight: 600; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 8px;}
@@ -86,7 +86,7 @@
 }
 // --------------------------------------------------------------------------------------------------
 
-.calc-window{padding-bottom: 58px; padding-top: 40px;}
+.calc-window{padding-bottom: 58px; padding-top:100px;}
 
 .calc-checks{border-top: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8; padding-top: 25px; max-height: 131px;
     .form_input{display:block; float: left; width: 50%; padding-left: 22px; }

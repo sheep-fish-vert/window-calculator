@@ -71,19 +71,42 @@
         <div class="calc-window-slide">
 
             <div class="slider-wrap">
-                <div class="slider-item"></div>
-                <div class="slider-item"></div>
+                <div class="slider-item slide-width-window"></div>
+                <div class="slider-item slide-height-window"></div>
+                <div class="slider-item slide-width-door"></div>
+                <div class="slider-item slide-height-door"></div>
             </div>
-            <div class="slide-input">
-                <div class="slide-input-item" data-slider=0>
-                    <p>Ширина</p>
-                    <input type="text" id="slide-width"  value="500" name="slide-width" data-step="10" data-min="0" data-max="3000" data-orientation="horizontal" class="slider-inp-item">
+
+            <div class="slide-input window-drag-inputs">
+                <div class="slide-input-title-main">Окно</div>
+                <div class="slide-input-wrap">
+                    <div class="slide-input-item" data-slider=0>
+                        <p>Ширина</p>
+                        <input type="text" id="slide-width-window"  value="600" name="slide-width-window" data-step="10" data-min="300" data-max="2400" data-orientation="horizontal" class="slider-inp-item">
+                    </div>
+                    <span>х</span>
+                    <div class="slide-input-item" data-slider=1>
+                        <p>Высота</p>
+                        <input type="text" id="slide-height-window"  value="600" name="slide-height-window" data-step="10" data-min="300" data-max="2300" data-orientation="vertical" class="slider-inp-item">
+                    </div>
                 </div>
-                <span>х</span>
-                <div class="slide-input-item" data-slider=1>
-                    <p>Высота</p>
-                    <input type="text" id="slide-height"  value="800" name="slide-height" data-step="10" data-min="0" data-max="3000" data-orientation="vertical" class="slider-inp-item">
+
+            </div>
+
+            <div class="slide-input door-drag-inputs">
+                <div class="slide-input-title-main">Дверь</div>
+                <div class="slide-input-wrap">
+                    <div class="slide-input-item" data-slider=0>
+                        <p>Ширина</p>
+                        <input type="text" id="slide-width-door"  value="1000" name="slide-width-door" data-step="10" data-min="1000" data-max="2300" data-orientation="horizontal" class="slider-inp-item">
+                    </div>
+                    <span>х</span>
+                    <div class="slide-input-item" data-slider=1>
+                        <p>Высота</p>
+                        <input type="text" id="slide-height-door"  value="1600" name="slide-height-door" data-step="10" data-min="1600" data-max="2400" data-orientation="vertical" class="slider-inp-item">
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

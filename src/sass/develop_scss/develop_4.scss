@@ -7,8 +7,13 @@
                 &.active{display: block;}
             }
         }
-        .slide-input{text-align: center;padding-top: 38px; max-width: 260px;    margin: 0 auto; display: flex; justify-content: space-between;
-            &>*{display: inline-block;vertical-align: bottom;}
+        .door-drag-inputs{display: none;
+            &.show{display: block;}
+        }
+        .slide-input{text-align: center;padding-top: 38px; max-width: 260px;    margin: 0 auto;
+            .slide-input-title-main{font-size: 18px;text-align: center;margin-bottom: 10px;font-weight: 700;}
+            .slide-input-wrap{display: flex;justify-content:center;}
+
             p{padding-bottom: 4px;}
             .slide-input-item{margin: 0 5px; font-size: 18px; font-family: "SegoeUI", sans-serif;  color: rgb(89, 89, 89); line-height: 1.667; font-weight: 400;
                 p{margin: 0;}
@@ -19,12 +24,20 @@
 
         .slider-wrap{position: relative;max-width: 300px;width: 100%;margin: 0 auto;
             .slider-item{position: absolute;border:none;background-color: #0094f2;border-radius: 0;
-                &.ui-slider-horizontal{width: 100%;left: 0;height: 2px;
+
+                &.ui-slider-horizontal{width: 100%;left:0;height: 2px;
+                    &.slide-width-door{bottom: 400px;display: none;
+                        &.show{display: block;}
+                    }
                     &.ui-slider{
                         .ui-slider-handle{top:-13px;}
                     }
                 }
-                &.ui-slider-vertical{left: 100%;height: 300px;bottom: 50px;width: 2px;
+                &.ui-slider-vertical{height: 300px;bottom: 50px;width: 2px;
+                    &.slide-height-window{left: 0;}
+                    &.slide-height-door{right: 0;display: none;
+                        &.show{display: block;}
+                    }
                     &.ui-slider{
                         .ui-slider-handle{left:-13px;}
                     }
