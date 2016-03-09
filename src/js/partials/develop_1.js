@@ -76,12 +76,7 @@ try{
 
         var steklopaketCena = chossenProfile.steklopaket[$('#izdelie4 option:checked').index()];
 
-        var tihiySteklopaket = chossenProfile.steklopaketTishina[0];
-        if($('.silence-check input:checked').length){
-            tihiySteklopaket = chossenProfile.steklopaketTishina[1];
-        }
-
-        var furnituraOkna = chossenProfile.furnitura[$('.calculator-tabs-item.active input:checked').data('furnitura')];
+        var furnituraOkna = chossenProfile.furnitura[$('.calculator-tabs-item.active input:checked').data('furnituratype')][$('.calculator-tabs-item.active input:checked').data('furnitura')];
         var impostCena = chossenProfile.impostPrice[$('.calculator-tabs-item.active input:checked').data('impost')];
         var ramaCena = chossenProfile.ramaPrice;
         var stvorkaCena = chossenProfile.stvorkaPrice;
@@ -100,7 +95,7 @@ try{
         var stvorkiAllPrice = ((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena;
 
         /* steklopaket price by formuls */
-        var steklopaketAllPrice = (windowWidth/1000)*(windowHeight/1000)*(steklopaketCena+tihiySteklopaket);
+        var steklopaketAllPrice = (windowWidth/1000)*(windowHeight/1000)*steklopaketCena;
 
         /* verticalImpost price by formuls */
         var verticalImpost = (windowHeight/1000)*impostCena;
