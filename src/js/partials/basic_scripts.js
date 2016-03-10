@@ -118,6 +118,30 @@ function headeButer(menuMobile,toggleMenu){
     }
 }
 
+/* input only Number  */
+function inputNumber(block, minVal) {
+
+    var pattern = /^[0-9]\d*$/;
+
+    $('input', block).keypress(function(e) {
+        if (e.which >= 47 && e.which <= 57 ){}
+        else return false;
+    });
+
+    $('input', block).keyup(function() {
+        $inputNum = $(this);
+        if ($inputNum.val == '' || $inputNum.val() < 0) {
+            $inputNum.val(minVal);
+        }
+    });
+
+    $('input', block).blur(function(){
+        if(!pattern.test($(this).val()) || $inputNum.val() < minVal){
+            $(this).val(minVal);
+        }
+    });
+}
+
 /* DOCUMENT READY  */
 $(document).ready(function() {
     oneHeightItems();

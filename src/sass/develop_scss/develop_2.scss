@@ -84,6 +84,9 @@
                 &:after{content: ''; position: absolute;width: 0; height: 0;border-style: solid; border-width: 7px 4px 0 4px; border-color: white transparent transparent transparent; bottom: 5px; right: 9px;}
             }
         }
+        &.km-value-wrap{padding-top: 10px;display: none;
+            input{border:1px solid #cbcbcb;height: 30px;padding: 0 5px;font-size: 14px;line-height: 30px;border-radius: 5px;}
+        }
     }
 
 /* /calculator-right */

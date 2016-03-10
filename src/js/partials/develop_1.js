@@ -86,6 +86,10 @@ try{
         var doorWidth = $('#slide-width-door').val();
         var doorHeight = $('#slide-height-door').val();
 
+        var kilometrash = 0;
+        if($('#izdelie7 option').eq(1).is(':checked')){
+            kilometrash = $('.km-value-wrap input').val() * kilometrashKoof;
+        }
 
 
         /* rama price by formuls */
@@ -111,7 +115,7 @@ try{
             sendwichPrice = ((doorHeight - doorWidth)/1000)*horizontalImpost*chossenProfile.sendwichCena;
         }
 
-        var allPrice = numberWithSpaces(parseInt(ramaAllPrice + stvorkiAllPrice + steklopaketAllPrice + verticalImpost + horizontalImpost+sendwichPrice));
+        var allPrice = numberWithSpaces(parseInt(ramaAllPrice + stvorkiAllPrice + steklopaketAllPrice + verticalImpost + horizontalImpost+sendwichPrice+kilometrash));
 
         $('.straday-res').text(allPrice);
 
@@ -147,6 +151,12 @@ try{
 
         });
 
+        $('.km-value-wrap input').change(function(){
+
+            calcLogic();
+
+        });
+
         $('.slide-input input').keypress(function(e){
 
             if (e.which >= 47 && e.which <= 57 ){}
@@ -170,6 +180,15 @@ try{
             calcLogic();
         });
 
+        $('#izdelie7').change(function(){
+            if($(this).find('option').eq(1).is(':checked')){
+                $('.km-value-wrap').addClass('active').slideDown(300);
+            }else{
+               $('.km-value-wrap').removeClass('active').slideUp(300);
+            }
+            calcLogic();
+        });
+
     }
 
     /* /call logic function when change radio or checkbox */
@@ -179,6 +198,7 @@ try{
 
         sliderInput();
         tabsClick();
+        inputNumber('.km-value-wrap', 1);
 
     });
 
