@@ -86,11 +86,10 @@ try{
         var doorWidth = $('#slide-width-door').val();
         var doorHeight = $('#slide-height-door').val();
 
-        var kilometrash = 0;
+        var kilometrash = dostavkaCena;
         if($('#izdelie7 option').eq(1).is(':checked')){
-            kilometrash = $('.km-value-wrap input').val() * kilometrashKoof;
+            kilometrash =dostavkaCena + $('.km-value-wrap input').val() * kilometrashKoof;
         }
-
 
         /* rama price by formuls */
         var ramaAllPrice = (((windowWidth+windowHeight)*2)/1000)*ramaCena;
