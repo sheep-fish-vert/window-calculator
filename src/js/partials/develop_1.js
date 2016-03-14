@@ -188,7 +188,7 @@ try{
 
             /* sendwich price by formuls */
 
-                sendwichPrice = ((doorHeight - doorWidth)/1000)*horizontalImpost*chossenProfile.sendwichCena;
+                sendwichPrice = ((doorHeight - windowHeight)/1000)*(doorWidth/1000)*chossenProfile.sendwichCena;
 
             /* /sendwich price by formuls */
         }
