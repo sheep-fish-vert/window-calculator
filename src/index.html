@@ -32,204 +32,245 @@
 
     <script>
 
-        var dostavkaCena = 1700;
-        var kilometrashKoof = 30;
         var atributesForProgrammer = {
 
-            renau:[
-                {
-                    ramaPrice:1,
-                    stvorkaPrice:1,
-                    impostPrice:[0, 100],
-                    steklopaket:[100, 200, 300, 400, 500],
-                    furnitura:[
-                        [0, 100, 200],
-                        [0, 100, 200, 300, 400, 500],
-                        [0, 100, 200, 300, 400, 500, 600, 700],
-                        [100, 200, 300, 400, 500]
-                    ],
-                    sendwichCena:100
-                },
-                {
-                    ramaPrice:2,
-                    stvorkaPrice:2,
-                    impostPrice:[0, 150],
-                    steklopaket:[150, 250, 350, 450, 550],
-                    furnitura:[
-                        [0, 150, 250],
-                        [0, 150, 250, 350, 450, 550],
-                        [0, 150, 250, 350, 450, 550, 650, 750],
-                        [150, 250, 350, 450, 550]
-                    ],
-                    sendwichCena:200
-                },
-                {
-                    ramaPrice:3,
-                    stvorkaPrice:3,
-                    impostPrice:[0, 200],
-                    steklopaket:[200, 300, 400, 500, 600],
-                    furnitura:[
-                       [0, 200, 300],
-                       [0, 200, 300, 400, 500, 600],
-                       [0, 200, 300, 400, 500, 600, 700, 800],
-                       [200, 300, 400, 500, 600]
-                    ],
-                    sendwichCena:200
-                },
-                {
-                    ramaPrice:4,
-                    stvorkaPrice:4,
-                    impostPrice:[0, 250],
-                    steklopaket:[250, 350, 450, 550, 650],
-                    furnitura:[
-                        [0, 250, 350],
-                        [0, 250, 350, 450, 550, 650],
-                        [0, 250, 350, 450, 550, 650, 750, 850],
-                        [250, 350, 450, 550, 650]
-                    ],
-                    sendwichCena:300
-                },
-                {
-                    ramaPrice:5,
-                    stvorkaPrice:5,
-                    impostPrice:[0, 300],
-                    steklopaket:[300, 400, 500, 600, 650],
-                    furnitura:[
-                        [0, 300, 400],
-                        [0, 300, 400, 500, 600, 700],
-                        [0, 300, 400, 500, 600, 700, 800, 900],
-                        [300, 400, 500, 600, 700]
-                    ],
-                    sendwichCena:400
-                }
-            ],
-            kkbe:[
-                {
-                    ramaPrice:1,
-                    stvorkaPrice:1,
-                    impostPrice:[0, 200],
-                    steklopaket:[150, 250, 350, 450, 550],
-                    furnitura:[
-                        [0, 150, 250],
-                        [0, 150, 250, 350, 450, 550],
-                        [0, 150, 250, 350, 450, 550, 650, 750],
-                        [150, 250, 350, 450, 550]
-                    ],
-                    sendwichCena:150
-                },
-                {
-                    ramaPrice:2,
-                    stvorkaPrice:2,
-                    impostPrice:[0, 250],
-                    steklopaket:[200, 300, 400, 500, 600],
-                    furnitura:[
-                        [0, 200, 300],
-                        [0, 200, 300, 400, 500, 600],
-                        [0, 200, 300, 400, 500, 600, 700, 800],
-                        [200, 300, 400, 500, 600]
-                    ],
-                    sendwichCena:250
-                },
-                {
-                    ramaPrice:3,
-                    stvorkaPrice:3,
-                    impostPrice:[0, 300],
-                    steklopaket:[250, 350, 450, 550, 650],
-                    furnitura:[
-                        [0, 250, 350],
-                        [0, 250, 350, 450, 550, 650],
-                        [0, 250, 350, 450, 550, 650, 750, 850],
-                        [250, 350, 450, 550, 650]
-                    ],
-                    sendwichCena:350
-                }
+            profile:{
+                renau:[
+                    {
+                        ramaPrice:1,
+                        stvorkaPrice:1,
+                        impostPrice:[0, 100],
+                        steklopaket:[100, 200, 300, 400, 500],
+                        furnitura:[
+                            [0, 100, 200],
+                            [0, 100, 200, 300, 400, 500],
+                            [0, 100, 200, 300, 400, 500, 600, 700],
+                            [100, 200, 300, 400, 500]
+                        ],
+                        sendwichCena:100,
+                        otlivCoof:1,
+                        podoconicCoof:1
+                    },
+                    {
+                        ramaPrice:2,
+                        stvorkaPrice:2,
+                        impostPrice:[0, 150],
+                        steklopaket:[150, 250, 350, 450, 550],
+                        furnitura:[
+                            [0, 150, 250],
+                            [0, 150, 250, 350, 450, 550],
+                            [0, 150, 250, 350, 450, 550, 650, 750],
+                            [150, 250, 350, 450, 550]
+                        ],
+                        sendwichCena:200,
+                        otlivCoof:2,
+                        podoconicCoof:1
+                    },
+                    {
+                        ramaPrice:3,
+                        stvorkaPrice:3,
+                        impostPrice:[0, 200],
+                        steklopaket:[200, 300, 400, 500, 600],
+                        furnitura:[
+                           [0, 200, 300],
+                           [0, 200, 300, 400, 500, 600],
+                           [0, 200, 300, 400, 500, 600, 700, 800],
+                           [200, 300, 400, 500, 600]
+                        ],
+                        sendwichCena:200,
+                        otlivCoof:3,
+                        podoconicCoof:1
+                    },
+                    {
+                        ramaPrice:4,
+                        stvorkaPrice:4,
+                        impostPrice:[0, 250],
+                        steklopaket:[250, 350, 450, 550, 650],
+                        furnitura:[
+                            [0, 250, 350],
+                            [0, 250, 350, 450, 550, 650],
+                            [0, 250, 350, 450, 550, 650, 750, 850],
+                            [250, 350, 450, 550, 650]
+                        ],
+                        sendwichCena:300,
+                        otlivCoof:4,
+                        podoconicCoof:1
+                    },
+                    {
+                        ramaPrice:5,
+                        stvorkaPrice:5,
+                        impostPrice:[0, 300],
+                        steklopaket:[300, 400, 500, 600, 650],
+                        furnitura:[
+                            [0, 300, 400],
+                            [0, 300, 400, 500, 600, 700],
+                            [0, 300, 400, 500, 600, 700, 800, 900],
+                            [300, 400, 500, 600, 700]
+                        ],
+                        sendwichCena:400,
+                        otlivCoof:5,
+                        podoconicCoof:1
+                    }
+                ],
+                kkbe:[
+                    {
+                        ramaPrice:1,
+                        stvorkaPrice:1,
+                        impostPrice:[0, 200],
+                        steklopaket:[150, 250, 350, 450, 550],
+                        furnitura:[
+                            [0, 150, 250],
+                            [0, 150, 250, 350, 450, 550],
+                            [0, 150, 250, 350, 450, 550, 650, 750],
+                            [150, 250, 350, 450, 550]
+                        ],
+                        sendwichCena:150,
+                        otlivCoof:1,
+                        podoconicCoof:2
+                    },
+                    {
+                        ramaPrice:2,
+                        stvorkaPrice:2,
+                        impostPrice:[0, 250],
+                        steklopaket:[200, 300, 400, 500, 600],
+                        furnitura:[
+                            [0, 200, 300],
+                            [0, 200, 300, 400, 500, 600],
+                            [0, 200, 300, 400, 500, 600, 700, 800],
+                            [200, 300, 400, 500, 600]
+                        ],
+                        sendwichCena:250,
+                        otlivCoof:2,
+                        podoconicCoof:2
+                    },
+                    {
+                        ramaPrice:3,
+                        stvorkaPrice:3,
+                        impostPrice:[0, 300],
+                        steklopaket:[250, 350, 450, 550, 650],
+                        furnitura:[
+                            [0, 250, 350],
+                            [0, 250, 350, 450, 550, 650],
+                            [0, 250, 350, 450, 550, 650, 750, 850],
+                            [250, 350, 450, 550, 650]
+                        ],
+                        sendwichCena:350,
+                        otlivCoof:3,
+                        podoconicCoof:2
+                    }
 
+                ],
+                wintech:[
+                    {
+                        ramaPrice:3,
+                        stvorkaPrice:3,
+                        impostPrice:[0, 300],
+                        steklopaket:[250, 350, 450, 550, 650],
+                        furnitura:[
+                            [0, 250, 350],
+                            [0, 250, 350, 450, 550, 650],
+                            [0, 250, 350, 450, 550, 650, 750, 850],
+                            [250, 350, 450, 550, 650]
+                        ],
+                        sendwichCena:450,
+                        otlivCoof:1,
+                        podoconicCoof:3
+                    },
+                    {
+                        ramaPrice:4,
+                        stvorkaPrice:4,
+                        impostPrice:[0, 400],
+                        steklopaket:[300, 400, 500, 600, 700],
+                        furnitura:[
+                            [0, 300, 400],
+                            [0, 300, 400, 500, 600, 700],
+                            [0, 300, 400, 500, 600, 700, 800, 900],
+                            [200, 300, 400, 500, 600]
+                        ],
+                        sendwichCena:550,
+                        otlivCoof:2,
+                        podoconicCoof:3
+                    }
+                ],
+                montblanc:[
+                    {
+                        ramaPrice:5,
+                        stvorkaPrice:5,
+                        impostPrice:[0, 250],
+                        steklopaket:[300, 350, 450, 550, 650],
+                        furnitura:[
+                            [0, 300, 400],
+                            [0, 300, 400, 500, 600, 700],
+                            [0, 300, 400, 500, 600, 700, 800, 900],
+                            [300, 400, 500, 700, 800]
+                        ],
+                        sendwichCena:650,
+                        otlivCoof:1,
+                        podoconicCoof:4
+                    },
+                    {
+                        ramaPrice:6,
+                        stvorkaPrice:6,
+                        impostPrice:[0, 500],
+                        steklopaket:[450, 550, 650, 750, 850],
+                        furnitura:[
+                            [0, 250, 450],
+                            [0, 250, 350, 450, 550, 650],
+                            [0, 250, 350, 450, 550, 650, 750, 850],
+                            [250, 350, 450, 550, 650]
+                        ],
+                        sendwichCena:750,
+                        otlivCoof:2,
+                        podoconicCoof:4
+                    }
+                ],
+                gutwerk:[
+                    {
+                        ramaPrice:1,
+                        stvorkaPrice:1,
+                        impostPrice:[0, 200],
+                        steklopaket:[250, 350, 450, 550, 650],
+                        furnitura:[
+                            [0, 350, 550],
+                            [0, 350, 450, 550, 650, 750],
+                            [0, 350, 450, 550, 650, 750, 850, 950],
+                            [350, 450, 550, 650, 750],
+                        ],
+                        sendwichCena:120,
+                        otlivCoof:1,
+                        podoconicCoof:5
+                    },
+                    {
+                        ramaPrice:2,
+                        stvorkaPrice:2,
+                        impostPrice:[0, 250],
+                        steklopaket:[300, 350, 450, 550, 650],
+                        furnitura:[
+                            [0, 400, 550],
+                            [0, 400, 550, 650, 750, 850],
+                            [0, 400, 550, 650, 750, 850, 950, 1050],
+                            [400, 550, 650, 750, 850]
+                        ],
+                        sendwichCena:130,
+                        otlivCoof:2 ,
+                        podoconicCoof:5
+                    }
+                ]
+            },
+            dostavkaCena:1700,
+            kilometrashKoof:30,
+            moskitnayaSetkaKoof:0.5,
+            moskitnayaSetkaOpredeleniaPloshadi:[
+                [0, 1, 1],
+                [0, 0.5, 0.5, 1, 1, 1],
+                [0, 0.33, 0.33, 0.66, 0.66, 0.66, 1, 1],
+                [0, 0, 1, 0.5, 1]
             ],
-            wintech:[
-                {
-                    ramaPrice:3,
-                    stvorkaPrice:3,
-                    impostPrice:[0, 300],
-                    steklopaket:[250, 350, 450, 550, 650],
-                    furnitura:[
-                        [0, 250, 350],
-                        [0, 250, 350, 450, 550, 650],
-                        [0, 250, 350, 450, 550, 650, 750, 850],
-                        [250, 350, 450, 550, 650]
-                    ],
-                    sendwichCena:450
-                },
-                {
-                    ramaPrice:4,
-                    stvorkaPrice:4,
-                    impostPrice:[0, 400],
-                    steklopaket:[300, 400, 500, 600, 700],
-                    furnitura:[
-                        [0, 300, 400],
-                        [0, 300, 400, 500, 600, 700],
-                        [0, 300, 400, 500, 600, 700, 800, 900],
-                        [200, 300, 400, 500, 600]
-                    ],
-                    sendwichCena:550
-                }
-            ],
-            montblanc:[
-                {
-                    ramaPrice:5,
-                    stvorkaPrice:5,
-                    impostPrice:[0, 250],
-                    steklopaket:[300, 350, 450, 550, 650],
-                    furnitura:[
-                        [0, 300, 400],
-                        [0, 300, 400, 500, 600, 700],
-                        [0, 300, 400, 500, 600, 700, 800, 900],
-                        [300, 400, 500, 700, 800]
-                    ],
-                    sendwichCena:650
-                },
-                {
-                    ramaPrice:6,
-                    stvorkaPrice:6,
-                    impostPrice:[0, 500],
-                    steklopaket:[450, 550, 650, 750, 850],
-                    furnitura:[
-                        [0, 250, 450],
-                        [0, 250, 350, 450, 550, 650],
-                        [0, 250, 350, 450, 550, 650, 750, 850],
-                        [250, 350, 450, 550, 650]
-                    ],
-                    sendwichCena:750
-                }
-            ],
-            gutwerk:[
-                {
-                    ramaPrice:1,
-                    stvorkaPrice:1,
-                    impostPrice:[0, 200],
-                    steklopaket:[250, 350, 450, 550, 650],
-                    furnitura:[
-                        [0, 350, 550],
-                        [0, 350, 450, 550, 650, 750],
-                        [0, 350, 450, 550, 650, 750, 850, 950],
-                        [350, 450, 550, 650, 750],
-                    ],
-                    sendwichCena:120
-                },
-                {
-                    ramaPrice:2,
-                    stvorkaPrice:2,
-                    impostPrice:[0, 250],
-                    steklopaket:[300, 350, 450, 550, 650],
-                    furnitura:[
-                        [0, 400, 550],
-                        [0, 400, 550, 650, 750, 850],
-                        [0, 400, 550, 650, 750, 850, 950, 1050],
-                        [400, 550, 650, 750, 850]
-                    ],
-
-                    sendwichCena:130
-                }
-            ]
+            moskitnayaSetkaKoof:100,
+            koofOtkosaZaTipomDoma:[100, 200],
+            izmenshenieShiriniOtkosaOtShiriniOkna:50,
+            koofMontashaZaTipomDoma:[150, 250],
+            koofDemontahsaZaTipomDoma:[200, 300]
         }
 
     </script>

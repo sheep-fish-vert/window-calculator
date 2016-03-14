@@ -40,7 +40,7 @@ try{
 
         $('.slider-inp-item').each(function(index) {
 
-            var slider = $(this).attr('id');
+            var slider = $(this).data('slide');
             var sliderMax = $(this).data('max');
             var sliderMin = $(this).data('min');
             var sliderStep = $(this).data('step');
@@ -55,7 +55,11 @@ try{
                 value:sliderVal,
                 orientation:sliderOrientation,
                 slide:function(evente, ui){
-                    $('.slide-input-item #'+slider).val(ui.value);
+                    $('.slide-input-item [data-slide='+slider+']').val(ui.value);
+                    if(slider == 'slide-width-window'){
+                        $('.otliv-dlina').val(ui.value + 100);
+                        $('.podoconic-dlina').val(ui.value + 200);
+                    }
                     calcLogic();
                 }
             });
@@ -72,7 +76,7 @@ try{
 
     function calcLogic(){
 
-        var chossenProfile = atributesForProgrammer[$('.row-tool li.active').data('profile')][$('.cactuz:not(.none-visible) option:selected').index()];
+        var chossenProfile = atributesForProgrammer.profile[$('.row-tool li.active').data('profile')][$('.cactuz:not(.none-visible) option:selected').index()];
 
         var steklopaketCena = chossenProfile.steklopaket[$('#izdelie4 option:checked').index()];
 
@@ -81,42 +85,121 @@ try{
         var ramaCena = chossenProfile.ramaPrice;
         var stvorkaCena = chossenProfile.stvorkaPrice;
 
-        var windowWidth = $('#slide-width-window').val();
-        var windowHeight = $('#slide-height-window').val();
-        var doorWidth = $('#slide-width-door').val();
-        var doorHeight = $('#slide-height-door').val();
+        var windowWidth = parseFloat($('[data-slide=slide-width-window]').val());
+        var windowHeight = parseFloat($('[data-slide=slide-height-window]').val());
+        var doorWidth = parseFloat($('[data-slide=slide-width-door]').val());
+        var doorHeight = parseFloat($('[data-slide=slide-height-door]').val());
 
-        var kilometrash = dostavkaCena;
+        var kilometrash = atributesForProgrammer.dostavkaCena;
         if($('#izdelie7 option').eq(1).is(':checked')){
-            kilometrash =dostavkaCena + $('.km-value-wrap input').val() * kilometrashKoof;
+            kilometrash = atributesForProgrammer.dostavkaCena + $('.km-value-wrap input').val() * atributesForProgrammer.kilometrashKoof;
         }
 
         /* rama price by formuls */
-        var ramaAllPrice = (((windowWidth+windowHeight)*2)/1000)*ramaCena;
+
+            var ramaAllPrice = (((windowWidth+windowHeight)*2)/1000)*ramaCena;
+
+        /* /rama price by formuls */
 
         /* stvorki price by formuls */
-        var stvorkiAllPrice = ((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena;
+
+            var stvorkiAllPrice = ((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena;
+
+        /* /stvorki price by formuls */
 
         /* steklopaket price by formuls */
-        var steklopaketAllPrice = (windowWidth/1000)*(windowHeight/1000)*steklopaketCena;
+
+            var steklopaketAllPrice = (windowWidth/1000)*(windowHeight/1000)*steklopaketCena;
+
+        /* /steklopaket price by formuls */
 
         /* verticalImpost price by formuls */
-        var verticalImpost = (windowHeight/1000)*impostCena;
+
+            var verticalImpost = (windowHeight/1000)*impostCena;
+
+        /* /verticalImpost price by formuls */
+
+        /* stoimost otliva i podokonika */
+
+            var otlivCena = (((parseFloat($('.otliv-shirina').val())+parseFloat($('.otliv-dlina').val()))*2)/1000)*chossenProfile.otlivCoof;
+            var podoconicCena = (((parseFloat($('.podoconic-shirina').val())+parseFloat($('.podoconic-dlina').val()))*2)/1000)*chossenProfile.podoconicCoof;
+
+        /* /stoimost otliva i podokonika */
+
+        /* moskitnayaSetka price by text iun task */
+
+            var moskitnayaSetkaCena = 0;
+
+            if($('.setka-checkbox').is(':checked')){
+                var shirinaMoskitnoySetkiOtRazmeraOkna = atributesForProgrammer.moskitnayaSetkaOpredeleniaPloshadi[$('.calculator-tabs-item.active input:checked').data('furnituratype')][$('.calculator-tabs-item.active input:checked').data('furnitura')]*windowWidth;
+                var moskitnayaSetkaCena = (((windowHeight + shirinaMoskitnoySetkiOtRazmeraOkna)*2)/1000)*atributesForProgrammer.moskitnayaSetkaKoof;
+            }
+
+        /* /moskitnayaSetka price by text iun task */
+
+        /* tip doma index */
+
+            var tipDomaIndex = $('#izdelie3-styler option:checked').index();
+            if(tipDomaIndex == -1){
+                tipDomaIndex = 0;
+            }
+
+        /* /tip doma index */
+
+        /* otdelka otkosov formula */
+
+            var otkosCena = 0;
+
+            if($('.otkos-checkbox').is(':checked')){
+                otkosCena = (((windowHeight+(windowWidth - atributesForProgrammer.izmenshenieShiriniOtkosaOtShiriniOkna))*2)/1000)*atributesForProgrammer.koofOtkosaZaTipomDoma[tipDomaIndex];
+            }
+
+        /* /otdelka otkosov formula */
+
+        /* demontash */
+
+            var demontashCena = 0;
+
+            if($('.demontash-checkbox').is(':checked')){
+                demontashCena = (((windowHeight+windowWidth)*2)/1000)*atributesForProgrammer.koofDemontahsaZaTipomDoma[tipDomaIndex];
+            }
+
+        /* /demontash */
+
+        /* montash */
+
+            var montashCena = 0;
+
+            if($('.montash-checkbox').is(':checked')){
+                montashCena = (((windowHeight+windowWidth)*2)/1000)*atributesForProgrammer.koofMontashaZaTipomDoma[tipDomaIndex];
+            }
+
+        /* /montash */
 
         var horizontalImpost = 0;
         var sendwichPrice = 0;
         if($('.door-drag-inputs').is('.show')){
 
             /* horizontalImpost price by formuls */
-            horizontalImpost = (doorWidth/1000)*impostCena;
+
+                horizontalImpost = (doorWidth/1000)*impostCena;
+
+            /* /horizontalImpost price by formuls */
 
             /* sendwich price by formuls */
-            sendwichPrice = ((doorHeight - doorWidth)/1000)*horizontalImpost*chossenProfile.sendwichCena;
+
+                sendwichPrice = ((doorHeight - doorWidth)/1000)*horizontalImpost*chossenProfile.sendwichCena;
+
+            /* /sendwich price by formuls */
         }
 
-        var allPrice = numberWithSpaces(parseInt(ramaAllPrice + stvorkiAllPrice + steklopaketAllPrice + verticalImpost + horizontalImpost+sendwichPrice+kilometrash));
+        /* formula obshey sumi */
+
+            var allPrice = numberWithSpaces(parseInt(ramaAllPrice + stvorkiAllPrice + steklopaketAllPrice + verticalImpost + horizontalImpost+sendwichPrice+kilometrash+otlivCena+podoconicCena+moskitnayaSetkaCena+otkosCena+demontashCena+montashCena));
 
         $('.straday-res').text(allPrice);
+
+        /* formula obshey sumi */
 
     }
 
@@ -165,10 +248,10 @@ try{
 
         $('.slide-input input').blur(function() {
 
-            var id = $(this).attr('id');
+            var id = $(this).data('slide');
             $inputNum = $(this);
 
-            if ($inputNum.val == '' || $inputNum.val() < $inputNum.data('min')) {
+            if ($inputNum.val() == '' || $inputNum.val() < $inputNum.data('min')){
                 $inputNum.val($inputNum.data('min'));
             }
             else if($inputNum.val() > $inputNum.data('max')){
