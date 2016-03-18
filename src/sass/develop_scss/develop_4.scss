@@ -5,6 +5,7 @@
             ul>li>ul>li{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
             li{display: none;
                 &.active{display: block;}
+                img{transform:scale(1.5);}
             }
         }
         .door-drag-inputs{display: none;
@@ -22,18 +23,18 @@
             span{display: inline-block;padding-bottom: 5px;}
         }
 
-        .slider-wrap{position: relative;max-width: 300px;width: 100%;margin: 0 auto;
+        .slider-wrap{position: absolute;width: 100%;height: 100%;margin: 0 auto;
             .slider-item{position: absolute;border:none;background-color: #0094f2;border-radius: 0;
 
-                &.ui-slider-horizontal{width: 100%;left:0;height: 2px;
-                    &.slide-width-door{bottom: 400px;display: none;
+                &.ui-slider-horizontal{width: 100%;left:48%;transform:translate(-50%, 0);height: 2px;top:100%;
+                    &.slide-width-door{bottom: 100%;top:auto;display: none;
                         &.show{display: block;}
                     }
                     &.ui-slider{
                         .ui-slider-handle{top:-13px;}
                     }
                 }
-                &.ui-slider-vertical{height: 300px;bottom: 50px;width: 2px;
+                &.ui-slider-vertical{height: 300px;top:53%;transform:translate(0, -50%);width: 2px;
                     &.slide-height-window{left: 0;}
                     &.slide-height-door{right: 0;display: none;
                         &.show{display: block;}

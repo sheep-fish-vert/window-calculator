@@ -58,7 +58,7 @@
         .title-row{  font-size: 18px;  font-family: "SegoeUI", sans-serif; font-weight: 600; color: rgb(89, 89, 89);line-height: 1.2; text-align: center; padding-bottom: 8px;}
 
         .slide-input{ padding-top: 20px; width: 285px; margin: 0 auto; display: flex; justify-content: space-between;
-            .slide-input-item{display: inline-block; text-align: left;}
+            .slide-input-item{display: inline-block; text-align: left;width: 40%;}
             input, input:disabled{width: 120px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 19px;background-color: #fff;}
             ::-webkit-input-placeholder {color: #4f4f4f;}
             ::-moz-placeholder          {color: #4f4f4f;}

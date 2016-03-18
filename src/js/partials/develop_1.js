@@ -13,8 +13,23 @@ try{
             $(this).parents('.calculator-tabs-item').addClass('active');
 
             $('.calc-window-img ul li').removeClass('active');
-            $('.calc-window-img>ul>li').eq(parentIndex).addClass('active');
-            $('.calc-window-img>ul>li.active li').eq(itemIndex).addClass('active');
+            $('.calc-window-img>.calc-window-img-wrap>ul>li').eq(parentIndex).addClass('active');
+            $('.calc-window-img>.calc-window-img-wrap>ul>li.active li').eq(itemIndex).addClass('active');
+
+            var imgWidth =  $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').width() * 1.5;
+            var imgHeight = $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').height() * 1.5;
+
+            var windowTransformWidth = -50-((1-parseFloat($(this).data('window-width')))*100);
+            var windowTransformHeight = -50-((1-parseFloat($(this).data('window-height')))*100);
+            var doorTransformWidth = 50-((1-parseFloat($(this).data('door-width')))*100);
+            var doorTransformHeight = -50-((1-parseFloat($(this).data('door-height')))*100);
+
+            console.log(windowTransformHeight+', '+doorTransformHeight);
+
+            $('.slide-width-window').css({'width':imgWidth*parseFloat($(this).data('window-width'))+'px','transform':'translate('+windowTransformWidth+'%, 0%)'});
+            $('.slide-height-window').css({'height':imgHeight*parseFloat($(this).data('window-height'))+'px','transform':'translate(0%, '+windowTransformHeight+'%)'});
+            $('.slide-height-door').css({'height':imgHeight*parseFloat($(this).data('door-height'))+'px','transform':'translate(0%,'+doorTransformHeight+'%)'});
+            $('.slide-width-door').css({'width':imgWidth*parseFloat($(this).data('door-width'))+'px','transform':'translate('+doorTransformWidth+'%, 0%)'});
 
             if(parentIndex == 3){
                 $('.door-drag-inputs').addClass('show');
@@ -58,6 +73,9 @@ try{
                     $('.slide-input-item [data-slide='+slider+']').val(ui.value);
                     if(slider == 'slide-width-window'){
                         $('.otliv-dlina').val(ui.value + 100);
+
+                    }
+                    else if(slider == 'slide-height-window'){
                         $('.podoconic-dlina').val(ui.value + 200);
                     }
                     calcLogic();
@@ -259,6 +277,12 @@ try{
             }
 
             $('.'+id).slider('value', $(this).val());
+
+            if(id== 'slide-width-window'){
+                $('.otliv-dlina').val(parseInt($(this).val())+100);
+            }else if(id == 'slide-height-window'){
+                $('.podoconic-dlina').val(parseInt($(this).val())+200);
+            }
             calcLogic();
         });
 
