@@ -21,6 +21,16 @@
 }
 @media screen and (max-width: 666px){
 
+    /* calculator-left */
+
+        .calculator-left{
+            .calc-window-slide.show-wrap{
+                .slide-input{max-width: 100%;padding: 20px 0 0 0;width: 100%;}
+            }
+        }
+
+    /* /calculator-left */
+
 }
 @media screen and (max-width: 479px){
 

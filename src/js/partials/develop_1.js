@@ -19,12 +19,18 @@ try{
             var imgWidth =  $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').width() * 1.5;
             var imgHeight = $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').height() * 1.5;
 
-            var windowTransformWidth = -50-((1-parseFloat($(this).data('window-width')))*100);
-            var windowTransformHeight = -50-((1-parseFloat($(this).data('window-height')))*100);
-            var doorTransformWidth = 50-((1-parseFloat($(this).data('door-width')))*100);
-            var doorTransformHeight = -50-((1-parseFloat($(this).data('door-height')))*100);
+            var imgWindowWidthSpec = ((1-parseFloat($(this).data('window-width')))*imgWidth)/2;
+            var imgWindowWindowWidth = parseFloat($(this).data('window-width'))*imgWidth;
+            var percWindowWidthImg = (100*imgWindowWidthSpec)/imgWindowWindowWidth;
 
-            console.log(windowTransformHeight+', '+doorTransformHeight);
+            var imgDoorWidthSpec = ((1-parseFloat($(this).data('door-width')))*imgWidth)/2;
+            var imgWindowDoorWidth = parseFloat($(this).data('door-width'))*imgWidth;
+            var percDoorWidthImg = (100*imgDoorWidthSpec)/imgWindowDoorWidth;
+
+            var windowTransformWidth = -50-percWindowWidthImg;
+            var windowTransformHeight = -50-((1-parseFloat($(this).data('window-height')))*100);
+            var doorTransformWidth = -50+percDoorWidthImg;
+            var doorTransformHeight = -50-((1-parseFloat($(this).data('door-height')))*100);
 
             $('.slide-width-window').css({'width':imgWidth*parseFloat($(this).data('window-width'))+'px','transform':'translate('+windowTransformWidth+'%, 0%)'});
             $('.slide-height-window').css({'height':imgHeight*parseFloat($(this).data('window-height'))+'px','transform':'translate(0%, '+windowTransformHeight+'%)'});
@@ -33,11 +39,13 @@ try{
 
             if(parentIndex == 3){
                 $('.door-drag-inputs').addClass('show');
+                $('.calc-window-slide').addClass('show-wrap');
                 $('.slide-width-door, .slide-height-door').addClass('show');
                 $('#slide-width-door').val($('#slide-width-door').data('min'));
                 $('#slide-height-door').val($('#slide-height-door').data('min'));
             }else{
                $('.door-drag-inputs').removeClass('show');
+               $('.calc-window-slide').removeClass('show-wrap');
                $('.slide-width-door, .slide-height-door').removeClass('show');
                $('#slide-width-door').val(0);
                $('#slide-height-door').val(0);
@@ -139,8 +147,8 @@ try{
 
         /* stoimost otliva i podokonika */
 
-            var otlivCena = (((parseFloat($('.otliv-shirina').val())+parseFloat($('.otliv-dlina').val()))*2)/1000)*chossenProfile.otlivCoof;
-            var podoconicCena = (((parseFloat($('.podoconic-shirina').val())+parseFloat($('.podoconic-dlina').val()))*2)/1000)*chossenProfile.podoconicCoof;
+            var otlivCena = (((parseFloat($('.otliv-shirina option:checked').val())+parseFloat($('.otliv-dlina').val()))*2)/1000)*chossenProfile.otlivCoof;
+            var podoconicCena = (((parseFloat($('.podoconic-shirina option:checked').val())+parseFloat($('.podoconic-dlina').val()))*2)/1000)*chossenProfile.podoconicCoof;
 
         /* /stoimost otliva i podokonika */
 

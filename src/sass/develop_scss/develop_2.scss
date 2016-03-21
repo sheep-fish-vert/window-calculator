@@ -59,7 +59,7 @@
 
         .slide-input{ padding-top: 20px; width: 285px; margin: 0 auto; display: flex; justify-content: space-between;
             .slide-input-item{display: inline-block; text-align: left;width: 40%;}
-            input, input:disabled{width: 120px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 19px;background-color: #fff;}
+            input, input:disabled{width: 90px; height: 30px; border: 1px solid #cbcbcb; color: #4f4f4f; font-size: 14px;    line-height: 30px; border-radius: 5px; text-indent: 19px;background-color: #fff;}
             ::-webkit-input-placeholder {color: #4f4f4f;}
             ::-moz-placeholder          {color: #4f4f4f;}
             :-moz-placeholder           {color: #4f4f4f;}
@@ -112,7 +112,7 @@
 
 .calc-window{padding-bottom: 58px; padding-top:100px;}
 
-.calc-checks{border-top: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8; padding-top: 25px; max-height: 131px;
+.calc-checks{border-top: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8; padding-top: 25px;
     .form_input{display:block; float: left; width: 50%; padding-left: 22px; }
 }
 

@@ -1,6 +1,6 @@
 /* calculator-left */
 
-    .calculator-left{width: 50%;display: table-cell; padding-right: 22px;vertical-align: bottom;     padding-bottom: 40px;
+    .calculator-left{width: 50%;display: table-cell; padding-right: 22px;vertical-align: bottom;padding-bottom: 40px;
         .calc-window-img{height: 360px;max-width: 300px;width: 100%;position: relative;margin:0 auto;
             ul>li>ul>li{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
             li{display: none;
@@ -11,16 +11,21 @@
         .door-drag-inputs{display: none;
             &.show{display: block;}
         }
-        .slide-input{text-align: center;padding-top: 38px; max-width: 260px;    margin: 0 auto;
-            .slide-input-title-main{font-size: 18px;text-align: center;margin-bottom: 10px;font-weight: 700;}
-            .slide-input-wrap{display: flex;justify-content:center;}
+        .calc-window-slide{
+            .slide-input{text-align: center;padding-top: 38px; max-width: 260px;    margin: 0 auto;
+                .slide-input-title-main{font-size: 18px;text-align: center;margin-bottom: 10px;font-weight: 700;}
+                .slide-input-wrap{display: flex;justify-content:center;}
 
-            p{padding-bottom: 4px;}
-            .slide-input-item{margin: 0 5px; font-size: 18px; font-family: "SegoeUI", sans-serif;  color: rgb(89, 89, 89); line-height: 1.667; font-weight: 400;
-                p{margin: 0;}
+                p{padding-bottom: 4px;}
+                .slide-input-item{margin: 0 5px; font-size: 18px; font-family: "SegoeUI", sans-serif;  color: rgb(89, 89, 89); line-height: 1.667; font-weight: 400;
+                    p{margin: 0;}
+                }
+                input{width: 100px;height: 30px;border:1px solid #cbcbcb;color: #4f4f4f;font-size: 14px;text-align: center;line-height: 30px;border-radius: 5px;}
+                span{display: inline-block;padding-bottom: 5px;}
             }
-            input{width: 100px;height: 30px;border:1px solid #cbcbcb;color: #4f4f4f;font-size: 14px;text-align: center;line-height: 30px;border-radius: 5px;}
-            span{display: inline-block;padding-bottom: 5px;}
+            &.show-wrap{display:flex;flex-wrap:wrap;
+                .slide-input{max-width: 50%;padding: 20px 5px 0 5px;}
+            }
         }
 
         .slider-wrap{position: absolute;width: 100%;height: 100%;margin: 0 auto;
