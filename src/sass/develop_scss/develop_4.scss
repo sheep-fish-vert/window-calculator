@@ -2,10 +2,9 @@
 
     .calculator-left{width: 50%;display: table-cell; padding-right: 22px;vertical-align: bottom;padding-bottom: 40px;
         .calc-window-img{height: 360px;max-width: 300px;width: 100%;position: relative;margin:0 auto;
-            ul>li>ul>li{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+            ul>li>ul>li{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: calc(100% - 70px);text-align: center;}
             li{display: none;
                 &.active{display: block;}
-                img{transform:scale(1.5);}
             }
         }
         .door-drag-inputs{display: none;
@@ -32,7 +31,7 @@
             .slider-item{position: absolute;border:none;background-color: #0094f2;border-radius: 0;
 
                 &.ui-slider-horizontal{width: 100%;left:48%;transform:translate(-50%, 0);height: 2px;top:100%;
-                    &.slide-width-door{bottom: 100%;top:auto;display: none;
+                    &.slide-width-door{bottom: calc(100% + 25px);top:auto;display: none;
                         &.show{display: block;}
                     }
                     &.ui-slider{

@@ -16,8 +16,8 @@ try{
             $('.calc-window-img>.calc-window-img-wrap>ul>li').eq(parentIndex).addClass('active');
             $('.calc-window-img>.calc-window-img-wrap>ul>li.active li').eq(itemIndex).addClass('active');
 
-            var imgWidth =  $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').width() * 1.5;
-            var imgHeight = $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').height() * 1.5;
+            var imgWidth =  $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').width() * 1;
+            var imgHeight = $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').height() * 1;
 
             var imgWindowWidthSpec = ((1-parseFloat($(this).data('window-width')))*imgWidth)/2;
             var imgWindowWindowWidth = parseFloat($(this).data('window-width'))*imgWidth;
@@ -168,20 +168,32 @@ try{
 
         /* /verticalImpost price by formuls */
 
+        /* tip podoconika */
+
+            var tipPodoconikaIndex = $('#izdelie6-styler option:checked').index();
+            if(tipPodoconikaIndex == -1){
+                tipPodoconikaIndex = 0;
+            }
+
+        /* /tip podoconika */
+
         /* stoimost otliva i podokonika */
 
             var otlivCena = (((parseFloat($('.otliv-shirina option:checked').val())+parseFloat($('.otliv-dlina').val()))*2)/1000)*chossenProfile.otlivCoof;
-            var podoconicCena = (((parseFloat($('.podoconic-shirina option:checked').val())+parseFloat($('.podoconic-dlina').val()))*2)/1000)*chossenProfile.podoconicCoof;
+            var podoconicCena = (((parseFloat($('.podoconic-shirina option:checked').val())+parseFloat($('.podoconic-dlina').val()))*2)/1000)*chossenProfile.podoconicCoof[tipPodoconikaIndex];
 
         /* /stoimost otliva i podokonika */
 
-        /* moskitnayaSetka price by text iun task */
+        /* moskitnayaSetka price by text in task */
 
             var moskitnayaSetkaCena = 0;
 
             if($('.setka-checkbox').is(':checked')){
                 var shirinaMoskitnoySetkiOtRazmeraOkna = atributesForProgrammer.moskitnayaSetkaOpredeleniaPloshadi[$('.calculator-tabs-item.active input:checked').data('furnituratype')][$('.calculator-tabs-item.active input:checked').data('furnitura')]*windowWidth;
-                var moskitnayaSetkaCena = (((windowHeight + shirinaMoskitnoySetkiOtRazmeraOkna)*2)/1000)*atributesForProgrammer.moskitnayaSetkaKoof;
+                if(shirinaMoskitnoySetkiOtRazmeraOkna != 0){
+                    moskitnayaSetkaCena = (((windowHeight + shirinaMoskitnoySetkiOtRazmeraOkna)*2)/1000)*atributesForProgrammer.moskitnayaSetkaKoof;
+                }
+
             }
 
         /* /moskitnayaSetka price by text iun task */
