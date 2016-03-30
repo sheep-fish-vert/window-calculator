@@ -51,6 +51,29 @@ try{
                $('#slide-height-door').val(0);
             }
 
+            var minMaxValueVariable = atributesForProgrammer.minMaxValues[$(this).find('input').data('window-type')];
+
+            $('.slide-width-window').slider('option', 'min', minMaxValueVariable.windowMinWidth);
+            $('.slide-width-window').slider('option', 'max', minMaxValueVariable.windowMaxWidth);
+            $('.slide-height-window').slider('option', 'min', minMaxValueVariable.windowMinHeight);
+            $('.slide-height-window').slider('option', 'max', minMaxValueVariable.windowMaxHeight);
+            $('.slide-width-door').slider('option', 'min', minMaxValueVariable.doorMinWidth);
+            $('.slide-width-door').slider('option', 'max', minMaxValueVariable.doorMaxWidth);
+            $('.slide-height-door').slider('option', 'min', minMaxValueVariable.doorMinHeight);
+            $('.slide-height-door').slider('option', 'max', minMaxValueVariable.doorMaxHeight);
+
+            $('.slide-width-window').slider('option', 'value', minMaxValueVariable.windowMinWidth);
+            $('.slide-height-window').slider('option', 'value', minMaxValueVariable.windowMinHeight);
+            $('.slide-width-door').slider('option', 'value', minMaxValueVariable.doorMinWidth);
+            $('.slide-height-door').slider('option', 'value', minMaxValueVariable.doorMinHeight);
+
+            $('.slide-input-item input[data-slide="slide-width-window"]').val(minMaxValueVariable.windowMinWidth);
+            $('.slide-input-item input[data-slide="slide-height-window"]').val(minMaxValueVariable.windowMinHeight);
+            $('.slide-input-item input[data-slide="slide-width-door"]').val(minMaxValueVariable.doorMinWidth);
+            $('.slide-input-item input[data-slide="slide-height-door"]').val(minMaxValueVariable.doorMinHeight);
+
+
+
         });
 
         $('.calculator-tabs-item').eq(0).find('label').eq(0).click();
