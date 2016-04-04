@@ -27,9 +27,9 @@ try{
             var imgWindowDoorWidth = parseFloat($(this).data('door-width'))*imgWidth;
             var percDoorWidthImg = (100*imgDoorWidthSpec)/imgWindowDoorWidth;
 
-            var windowTransformWidth = -50-percWindowWidthImg;
+            var windowTransformWidth = -46-percWindowWidthImg;
             var windowTransformHeight = -50-((1-parseFloat($(this).data('window-height')))*100);
-            var doorTransformWidth = -50+percDoorWidthImg;
+            var doorTransformWidth = -46+percDoorWidthImg;
             var doorTransformHeight = -50-((1-parseFloat($(this).data('door-height')))*100);
 
             $('.slide-width-window').css({'width':imgWidth*parseFloat($(this).data('window-width'))+'px','transform':'translate('+windowTransformWidth+'%, 0%)'});
