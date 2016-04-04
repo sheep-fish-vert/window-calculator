@@ -110,13 +110,17 @@
 
 // --------------------------------------------------------------------------------------------------
 
-.calc-window{padding-bottom: 58px; padding-top:100px;}
+.calc-window{padding-top:100px;}
 
-.calc-checks{border-top: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8; padding-top: 25px;
-    .form_input{display:block; float: left; width: 50%; padding-left: 22px; }
+.calc-checks{padding-top: 25px;margin-bottom: 20px;
+    .checkers{display: flex;justify-content:center;align-items:center;flex-wrap:wrap;min-height: 100px;padding: 10px 0;position: relative;
+        &:before{content:'';display: block;position: absolute;top:0;left:50%;width: 1px;height: 100%;background-color: #cecece;}
+        .one-brow{width: 50%;}
+    }
+    .form_input{display:block; float: left; width: 50%; padding: 0 10px;text-align: center;}
 }
 
-.calc-price{display: table; width: 100%; min-height: 55px;
+.calc-price{display: table; width: 100%; min-height: 55px;max-width:600px;margin:0 auto;
     .cena-block{ color: rgb(89, 89, 89); border: 1px solid #e8e8e8;}
     .calc-block{color: rgb(255, 255, 255); border: 2px solid rgb(53, 177, 247); border-color: rgb(53, 177, 247);background-image: -moz-linear-gradient( 90deg, rgb(4,158,244) 0%, rgb(104,196,251) 100%); background-image: -webkit-linear-gradient( 90deg, rgb(4,158,244) 0%, rgb(104,196,251) 100%); background-image: -ms-linear-gradient( 90deg, rgb(4,158,244) 0%, rgb(104,196,251) 100%);  box-shadow: 0px 2px 5.76px 0.24px rgba(0, 0, 0, 0.17);}
     .box-2-box{width: 50%; display: table-cell;vertical-align: middle; text-align: center; font-size: 24px; font-family: "SegoeUI", sans-serif; line-height: 1.2; font-weight: 600;}
