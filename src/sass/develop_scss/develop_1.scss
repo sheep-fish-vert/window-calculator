@@ -1,6 +1,6 @@
 /* calculator-tabs */
 
-    .calculator-tabs{position: relative;z-index: 1;
+    .calculator-tabs{position: relative;z-index: 2;
 
         .calculator-tabs-main{display: flex;justify-content:space-between;flex-wrap:wrap;position: relative;
             .calculator-tabs-item{width: calc(25% - 5px);border:1px solid #e5e5e5;height: 93px;z-index: 0;
