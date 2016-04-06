@@ -15,6 +15,12 @@
 }
 @media screen and (max-width: 992px){
 
+    /* calculator-tabs */
+
+        .calculator-tabs .calculator-tabs-main .tabs-text{font-size: 14px;}
+
+    /* /calculator-tabs */
+
 }
 @media screen and (max-width: 767px){
 
@@ -22,6 +28,7 @@
 
         .calculator-tabs{
             .calculator-tabs-main{
+                .tabs-text{font-size: 18px;}
                 .calculator-tabs-item{width: calc(50% - 5px);margin-bottom: 10px;
                     &:first-child, &:last-child, &:nth-child(3), &:nth-child(2){
                         .calculator-tabs-windows{width: 100%;}

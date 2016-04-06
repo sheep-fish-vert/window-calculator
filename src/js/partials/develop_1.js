@@ -83,6 +83,8 @@ try{
 
         $('.calculator-tabs-item').eq(0).find('label').eq(0).click();
 
+
+
         $(window).resize(function(){
 
             slidesWidthHeight();
