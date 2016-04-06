@@ -1,7 +1,7 @@
 /* calculator-left */
 
-    .calculator-left{width: 50%;display: table-cell; padding-right: 22px;vertical-align: bottom;padding-bottom: 40px;
-        .calc-window-img{height: 360px;max-width: 425px;width: 100%;position: relative;margin:0 auto;
+    .calculator-left{width: 50%;display: table-cell; padding-right: 22px;padding-left:22px;vertical-align: bottom;padding-bottom: 40px;
+        .calc-window-img{height: 360px;max-width: 425px;width: 100%;position: relative;margin:0 auto 30px auto;
             ul>li>ul>li{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: calc(100% - 70px);text-align: center;}
             li{display: none;
                 &.active{display: block;}
@@ -20,7 +20,7 @@
                 .slide-input-item{margin: 0 5px; font-size: 18px; font-family: "SegoeUI", sans-serif;  color: rgb(89, 89, 89); line-height: 1.667; font-weight: 400;
                     p{margin: 0;}
                 }
-                input{width: 100px;height: 30px;border:1px solid #cbcbcb;color: #4f4f4f;font-size: 14px;text-align: center;line-height: 30px;border-radius: 5px;}
+                input{width: 90px;height: 30px;border:1px solid #cbcbcb;color: #4f4f4f;font-size: 14px;text-align: center;line-height: 30px;border-radius: 5px;}
                 span{display: inline-block;padding-bottom: 5px;}
             }
             &.show-wrap{display:flex;flex-wrap:wrap;
@@ -31,8 +31,8 @@
         .slider-wrap{position: absolute;width: 100%;height: 100%;margin: 0 auto;
             .slider-item{position: absolute;border:none;background-color: #0094f2;border-radius: 0;
 
-                &.ui-slider-horizontal{width: 100%;left:48%;transform:translate(-50%, 0);height: 2px;top:100%;position: relative;z-index: 1;
-                    &.slide-width-door{display: none;z-index: 0;top:calc(100% - 2px);
+                &.ui-slider-horizontal{width: 100%;left:48%;transform:translate(-50%, 0);height: 2px;top:calc(100% + 22px);position: relative;z-index: 1;
+                    &.slide-width-door{display: none;z-index: 0;top:calc(100% + 20px);
                         &.show{display: block;}
                     }
                     &.ui-slider{

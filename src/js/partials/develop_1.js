@@ -2,6 +2,30 @@ try{
 
     function tabsClick(){
 
+        function slidesWidthHeight(){
+
+            var imgWidth =  $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').width() * 1;
+            var imgHeight = $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').height() * 1;
+
+            var imgWindowWidthSpec = ((1-parseFloat($('.calculator-tabs-item.active li.active label').data('window-width')))*imgWidth)/2;
+            var imgWindowWindowWidth = parseFloat($('.calculator-tabs-item.active li.active label').data('window-width'))*imgWidth;
+            var percWindowWidthImg = (100*imgWindowWidthSpec)/imgWindowWindowWidth;
+
+            var imgDoorWidthSpec = ((1-parseFloat($('.calculator-tabs-item.active li.active label').data('door-width')))*imgWidth)/2;
+            var imgWindowDoorWidth = parseFloat($('.calculator-tabs-item.active li.active label').data('door-width'))*imgWidth;
+            var percDoorWidthImg = (100*imgDoorWidthSpec)/imgWindowDoorWidth;
+
+            var windowTransformWidth = -46-percWindowWidthImg;
+            var windowTransformHeight = -50-((1-parseFloat($('.calculator-tabs-item.active li.active label').data('window-height')))*100);
+            var doorTransformWidth = -46+percDoorWidthImg;
+            var doorTransformHeight = -50-((1-parseFloat($('.calculator-tabs-item.active li.active label').data('door-height')))*100);
+
+            $('.slide-width-window').css({'width':imgWidth*parseFloat($('.calculator-tabs-item.active li.active label').data('window-width'))+'px','transform':'translate('+windowTransformWidth+'%, 0%)'});
+            $('.slide-height-window').css({'height':imgHeight*parseFloat($('.calculator-tabs-item.active li.active label').data('window-height'))+'px','transform':'translate(0%, '+windowTransformHeight+'%)'});
+            $('.slide-height-door').css({'height':imgHeight*parseFloat($('.calculator-tabs-item.active li.active label').data('door-height'))+'px','transform':'translate(0%,'+doorTransformHeight+'%)'});
+            $('.slide-width-door').css({'width':imgWidth*parseFloat($('.calculator-tabs-item.active li.active label').data('door-width'))+'px','transform':'translate('+doorTransformWidth+'%, 0%)'});
+        }
+
         $(document).on('click','.calculator-tabs-windows label', function(){
 
             var itemIndex = $(this).parent().index();
@@ -16,26 +40,7 @@ try{
             $('.calc-window-img>.calc-window-img-wrap>ul>li').eq(parentIndex).addClass('active');
             $('.calc-window-img>.calc-window-img-wrap>ul>li.active li').eq(itemIndex).addClass('active');
 
-            var imgWidth =  $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').width() * 1;
-            var imgHeight = $('.calc-window-img>.calc-window-img-wrap>ul>li.active li.active img').height() * 1;
-
-            var imgWindowWidthSpec = ((1-parseFloat($(this).data('window-width')))*imgWidth)/2;
-            var imgWindowWindowWidth = parseFloat($(this).data('window-width'))*imgWidth;
-            var percWindowWidthImg = (100*imgWindowWidthSpec)/imgWindowWindowWidth;
-
-            var imgDoorWidthSpec = ((1-parseFloat($(this).data('door-width')))*imgWidth)/2;
-            var imgWindowDoorWidth = parseFloat($(this).data('door-width'))*imgWidth;
-            var percDoorWidthImg = (100*imgDoorWidthSpec)/imgWindowDoorWidth;
-
-            var windowTransformWidth = -46-percWindowWidthImg;
-            var windowTransformHeight = -50-((1-parseFloat($(this).data('window-height')))*100);
-            var doorTransformWidth = -46+percDoorWidthImg;
-            var doorTransformHeight = -50-((1-parseFloat($(this).data('door-height')))*100);
-
-            $('.slide-width-window').css({'width':imgWidth*parseFloat($(this).data('window-width'))+'px','transform':'translate('+windowTransformWidth+'%, 0%)'});
-            $('.slide-height-window').css({'height':imgHeight*parseFloat($(this).data('window-height'))+'px','transform':'translate(0%, '+windowTransformHeight+'%)'});
-            $('.slide-height-door').css({'height':imgHeight*parseFloat($(this).data('door-height'))+'px','transform':'translate(0%,'+doorTransformHeight+'%)'});
-            $('.slide-width-door').css({'width':imgWidth*parseFloat($(this).data('door-width'))+'px','transform':'translate('+doorTransformWidth+'%, 0%)'});
+            slidesWidthHeight();
 
             if(parentIndex == 3){
                 $('.door-drag-inputs').addClass('show');
@@ -78,6 +83,12 @@ try{
 
         $('.calculator-tabs-item').eq(0).find('label').eq(0).click();
 
+        $(window).resize(function(){
+
+            slidesWidthHeight();
+
+        });
+
     }
 
     /* init slide */
@@ -104,10 +115,11 @@ try{
                     $('.slide-input-item [data-slide='+slider+']').val(ui.value);
                     if(slider == 'slide-width-window'){
                         $('.otliv-dlina').val(ui.value + 100);
+                        $('.podoconic-dlina').val(ui.value + 200);
 
                     }
                     else if(slider == 'slide-height-window'){
-                        $('.podoconic-dlina').val(ui.value + 200);
+                        //
                     }
                     calcLogic();
                 }
