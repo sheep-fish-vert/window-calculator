@@ -42,7 +42,7 @@ try{
 
             slidesWidthHeight();
 
-            if(parentIndex == 3){
+            if($(this).data('door')){
                 $('.door-drag-inputs').addClass('show');
                 $('.calc-window-slide').addClass('show-wrap');
                 $('.slide-width-door, .slide-height-door').addClass('show');
@@ -77,7 +77,13 @@ try{
             $('.slide-input-item input[data-slide="slide-width-door"]').val(minMaxValueVariable.doorMinWidth);
             $('.slide-input-item input[data-slide="slide-height-door"]').val(minMaxValueVariable.doorMinHeight);
 
+            $('.slide-input-item input[data-slide="slide-width-window"]').attr('data-min', minMaxValueVariable.windowMinWidth).attr('data-max', minMaxValueVariable.windowMaxWidth);
+            $('.slide-input-item input[data-slide="slide-height-window"]').attr('data-min', minMaxValueVariable.windowMinHeight).attr('data-max', minMaxValueVariable.windowMaxHeight);
+            $('.slide-input-item input[data-slide="slide-width-door"]').attr('data-min', minMaxValueVariable.doorMinWidth).attr('data-max', minMaxValueVariable.doorMaxWidth);
+            $('.slide-input-item input[data-slide="slide-height-door"]').attr('data-min', minMaxValueVariable.doorMinHeight).attr('data-max', minMaxValueVariable.doorMaxHeight);
 
+            $('.otliv-dlina').val(minMaxValueVariable.windowMinWidth+100);
+            $('.podoconic-dlina').val(minMaxValueVariable.windowMinWidth+200);
 
         });
 
@@ -166,13 +172,40 @@ try{
 
         /* stvorki price by formuls */
 
-            var stvorkiAllPrice = ((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena;
+            var stvorkiAllPrice = 0;
+            if(furnituraOkna != 0){
+                stvorkiAllPrice = ((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena;
+            }
 
         /* /stvorki price by formuls */
 
         /* steklopaket price by formuls */
 
-            var steklopaketAllPrice = (windowWidth/1000)*(windowHeight/1000)*steklopaketCena;
+            var kolichestvoOkon = $('.calculator-tabs-item.active input:checked').data('kolichestvo-okon');
+            var kolichestvoFurnitur = $('.calculator-tabs-item.active input:checked').data('kolichestvo-furnitur');
+            var pointForKolichestvoFurnitur = 0;
+            var widthAndHeightEachOfWindowPart = [];
+
+            for(var i=0;i<kolichestvoOkon;i++){
+                if(pointForKolichestvoFurnitur < kolichestvoFurnitur){
+                    widthAndHeightEachOfWindowPart[i] = [(windowHeight - (atributesForProgrammer.bokovinkyShirina[1] * 2)),((windowWidth/kolichestvoOkon) - atributesForProgrammer.bokovinkyShirina[1] * 2)];
+                    pointForKolichestvoFurnitur++;
+                }else{
+                    widthAndHeightEachOfWindowPart[i] = [(windowHeight - (atributesForProgrammer.bokovinkyShirina[0] * 2)),((windowWidth/kolichestvoOkon) - atributesForProgrammer.bokovinkyShirina[0] * 2)]
+                }
+            }
+
+            var ploshadOkon = 0;
+
+            widthAndHeightEachOfWindowPart.forEach(function(item, index){
+                ploshadOkon = ploshadOkon + ((item[0]/1000)*(item[1]/1000));
+            });
+
+            if($('.calculator-tabs-item.active label').data('door')){
+                ploshadOkon = ploshadOkon + (((doorWidth - atributesForProgrammer.bokovinkyShirina[1] * 2)/1000)*((doorHeight - atributesForProgrammer.bokovinkyShirina[1] * 2)/1000));
+            }
+
+            var steklopaketAllPrice = ploshadOkon*steklopaketCena;
 
         /* /steklopaket price by formuls */
 
@@ -193,8 +226,8 @@ try{
 
         /* stoimost otliva i podokonika */
 
-            var otlivCena = (((parseFloat($('.otliv-shirina option:checked').val())+parseFloat($('.otliv-dlina').val()))*2)/1000)*chossenProfile.otlivCoof;
-            var podoconicCena = (((parseFloat($('.podoconic-shirina option:checked').val())+parseFloat($('.podoconic-dlina').val()))*2)/1000)*chossenProfile.podoconicCoof[tipPodoconikaIndex];
+            var otlivCena = parseFloat($('.otliv-dlina').val()/1000) * chossenProfile.otlivCoof[parseFloat($('.otliv-shirina option:checked').val())];
+            var podoconicCena = parseFloat($('.podoconic-dlina').val()/1000) * chossenProfile.podoconicCoof[tipPodoconikaIndex][$('.podoconic-shirina option:checked').val()];
 
         /* /stoimost otliva i podokonika */
 
@@ -290,6 +323,25 @@ try{
 
         });
 
+        $('#izdelie6').change(function(){
+
+            var chossenProfileIzdelie = atributesForProgrammer.profile[$('.row-tool li.active').data('profile')][$('.cactuz:not(.none-visible) option:selected').index()];
+
+            var tipPodoconikaIndexIzdelie = $('#izdelie6-styler option:checked').index();
+            if(tipPodoconikaIndexIzdelie == -1){
+                tipPodoconikaIndexIzdelie = 0;
+            }
+
+            $('.podoconic-shirina').styler('destroy');
+            $('.podoconic-shirina option').remove();
+
+            for(name in chossenProfileIzdelie.podoconicCoof[tipPodoconikaIndexIzdelie]){
+                $('.podoconic-shirina').append('<option value='+name+'>'+name+'</option>');
+            }
+            $('.podoconic-shirina').styler();
+
+        });
+
         $('.contact-form-item input[type="checkbox"]').change(function(){
 
             calcLogic();
@@ -326,20 +378,24 @@ try{
             var id = $(this).data('slide');
             $inputNum = $(this);
 
-            if ($inputNum.val() == '' || $inputNum.val() < $inputNum.data('min')){
-                $inputNum.val($inputNum.data('min'));
+            if ($inputNum.val() == '' || $inputNum.val() < parseInt($inputNum.attr('data-min'))){
+
+                $inputNum.val($inputNum.attr('data-min'));
+
             }
-            else if($inputNum.val() > $inputNum.data('max')){
-                $inputNum.val($inputNum.data('max'));
+            else if($inputNum.val() > parseInt($inputNum.attr('data-max'))){
+
+                $inputNum.val(parseInt($inputNum.attr('data-max')));
+
             }
 
             $('.'+id).slider('value', $(this).val());
 
             if(id== 'slide-width-window'){
                 $('.otliv-dlina').val(parseInt($(this).val())+100);
-            }else if(id == 'slide-height-window'){
                 $('.podoconic-dlina').val(parseInt($(this).val())+200);
             }
+
             calcLogic();
         });
 
@@ -366,6 +422,8 @@ try{
     });
 
     $(window).load(function(){
+
+        $('select').styler();
 
         calcLogic();
         callCalculatorLogic();
