@@ -149,7 +149,7 @@ try{
 
         var steklopaketCena = chossenProfile.steklopaket[$('#izdelie4 option:checked').index()];
 
-        var furnituraOkna = chossenProfile.furnitura[$('.calculator-tabs-item.active input:checked').data('furnituratype')][$('.calculator-tabs-item.active input:checked').data('furnitura')];
+        var furnituraOkna = parseFloat(chossenProfile.furnitura[$('.calculator-tabs-item.active input:checked').data('furnituratype')][$('.calculator-tabs-item.active input:checked').data('furnitura')]);
         var impostCena = chossenProfile.impostPrice[$('.calculator-tabs-item.active input:checked').data('impost')];
         var ramaCena = chossenProfile.ramaPrice;
         var stvorkaCena = chossenProfile.stvorkaPrice;
@@ -163,10 +163,16 @@ try{
         if($('#izdelie7 option').eq(1).is(':checked')){
             kilometrash = atributesForProgrammer.dostavkaCena + $('.km-value-wrap input').val() * atributesForProgrammer.kilometrashKoof;
         }
+        if($('.calculator-tabs-item.active label').data('door')){
+            var doorFurnitura = chossenProfile.doorFurnitura[$('.calculator-tabs-item.active input:checked').data('door-furnitura')];
+        }
 
         /* rama price by formuls */
 
             var ramaAllPrice = (((windowWidth+windowHeight)*2)/1000)*ramaCena;
+            if($('.calculator-tabs-item.active label').data('door')){
+                ramaAllPrice = ramaAllPrice + (((doorWidth+doorHeight)*2)/1000)*ramaCena;
+            }
 
         /* /rama price by formuls */
 
@@ -174,7 +180,16 @@ try{
 
             var stvorkiAllPrice = 0;
             if(furnituraOkna != 0){
-                stvorkiAllPrice = ((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena;
+
+                /* old formula:
+                stvorkiAllPrice = (((((windowWidth/2)+windowHeight)*2)/1000)*stvorkaCena) + furnituraOkna;
+                */
+
+                stvorkiAllPrice = (((windowWidth+windowHeight-140)/500)*stvorkaCena) + furnituraOkna; //here is by -140 by new formuls version
+
+            }
+            if($('.calculator-tabs-item.active label').data('door')){
+                stvorkiAllPrice = stvorkiAllPrice + (((doorWidth+doorHeight-140)/500)*stvorkaCena)+doorFurnitura;
             }
 
         /* /stvorki price by formuls */
@@ -188,10 +203,10 @@ try{
 
             for(var i=0;i<kolichestvoOkon;i++){
                 if(pointForKolichestvoFurnitur < kolichestvoFurnitur){
-                    widthAndHeightEachOfWindowPart[i] = [(windowHeight - (atributesForProgrammer.bokovinkyShirina[1] * 2)),((windowWidth/kolichestvoOkon) - atributesForProgrammer.bokovinkyShirina[1] * 2)];
+                    widthAndHeightEachOfWindowPart[i] = [(windowHeight - (atributesForProgrammer.bokovinkyShirina[1])),((windowWidth/kolichestvoOkon) - atributesForProgrammer.bokovinkyShirina[1])];
                     pointForKolichestvoFurnitur++;
                 }else{
-                    widthAndHeightEachOfWindowPart[i] = [(windowHeight - (atributesForProgrammer.bokovinkyShirina[0] * 2)),((windowWidth/kolichestvoOkon) - atributesForProgrammer.bokovinkyShirina[0] * 2)]
+                    widthAndHeightEachOfWindowPart[i] = [(windowHeight - (atributesForProgrammer.bokovinkyShirina[0])),((windowWidth/kolichestvoOkon) - atributesForProgrammer.bokovinkyShirina[0])]
                 }
             }
 
@@ -202,8 +217,16 @@ try{
             });
 
             if($('.calculator-tabs-item.active label').data('door')){
-                ploshadOkon = ploshadOkon + (((doorWidth - atributesForProgrammer.bokovinkyShirina[1] * 2)/1000)*((doorHeight - atributesForProgrammer.bokovinkyShirina[1] * 2)/1000));
+                ploshadOkon = ploshadOkon + (((doorWidth - atributesForProgrammer.bokovinkyShirina[1])/1000)*((windowHeight - atributesForProgrammer.bokovinkyShirina[1])/1000));
             }
+
+            /* previous code was:
+
+                if($('.calculator-tabs-item.active label').data('door')){
+                    ploshadOkon = ploshadOkon + (((doorWidth - atributesForProgrammer.bokovinkyShirina[1])/1000)*((doorHeight - atributesForProgrammer.bokovinkyShirina[1])/1000));
+                }
+
+            */
 
             var steklopaketAllPrice = ploshadOkon*steklopaketCena;
 
@@ -211,7 +234,7 @@ try{
 
         /* verticalImpost price by formuls */
 
-            var verticalImpost = (windowHeight/1000)*impostCena;
+            var verticalImpost = (windowHeight/1000)*impostCena; // don't used in new formuls
 
         /* /verticalImpost price by formuls */
 
@@ -227,7 +250,15 @@ try{
         /* stoimost otliva i podokonika */
 
             var otlivCena = parseFloat($('.otliv-dlina').val()/1000) * chossenProfile.otlivCoof[parseFloat($('.otliv-shirina option:checked').val())];
+
+            var podoconicCena = parseFloat($('.podoconic-dlina').val());
+            /* old formula:
             var podoconicCena = parseFloat($('.podoconic-dlina').val()/1000) * chossenProfile.podoconicCoof[tipPodoconikaIndex][$('.podoconic-shirina option:checked').val()];
+            */
+            if($('.calculator-tabs-item.active label').data('door')){
+                podoconicCena = podoconicCena + doorWidth + 200;
+            }
+            podoconicCena = parseFloat(podoconicCena/1000)*chossenProfile.podoconicCoof[tipPodoconikaIndex][$('.podoconic-shirina option:checked').val()];
 
         /* /stoimost otliva i podokonika */
 
@@ -259,7 +290,12 @@ try{
             var otkosCena = 0;
 
             if($('.otkos-checkbox').is(':checked')){
+                /*
+                //old formula
                 otkosCena = (((windowHeight+(windowWidth - atributesForProgrammer.izmenshenieShiriniOtkosaOtShiriniOkna))*2)/1000)*atributesForProgrammer.koofOtkosaZaTipomDoma[tipDomaIndex];
+                */
+                otkosCena = ((windowWidth/1000)+(windowHeight/1000)*2)*((podoconicCena-atributesForProgrammer.izmenshenieShiriniOtkosaOtShiriniOkna)/1000)*700;
+                console.log(otkosCena, ' - cena otkosa.');
             }
 
         /* /otdelka otkosov formula */
@@ -296,18 +332,33 @@ try{
 
             /* sendwich price by formuls */
 
-                sendwichPrice = ((doorHeight - windowHeight)/1000)*(doorWidth/1000)*chossenProfile.sendwichCena;
+                sendwichPrice = ((doorHeight - windowHeight - atributesForProgrammer.bokovinkyShirina[1])/1000)*((doorWidth - atributesForProgrammer.bokovinkyShirina[1])/1000)*chossenProfile.sendwichCena;
 
             /* /sendwich price by formuls */
         }
 
         /* formula obshey sumi */
 
-            var allPrice = numberWithSpaces(parseInt(ramaAllPrice + stvorkiAllPrice + steklopaketAllPrice + verticalImpost + horizontalImpost+sendwichPrice+kilometrash+otlivCena+podoconicCena+moskitnayaSetkaCena+otkosCena+demontashCena+montashCena));
+            var allPrice = numberWithSpaces(parseInt(ramaAllPrice + stvorkiAllPrice + steklopaketAllPrice /*+ verticalImpost*/ + horizontalImpost+sendwichPrice+kilometrash+otlivCena+podoconicCena+moskitnayaSetkaCena+otkosCena+demontashCena+montashCena));
 
         $('.straday-res').text(allPrice);
 
         /* formula obshey sumi */
+
+
+        /* consoles info about item */
+
+        console.log(' ');
+        console.log('----------------------------------------------------------');
+
+        console.log('Rama all price coof: ' + ((windowWidth+windowHeight)*2)/1000 + ', ramaCena: ' + ramaCena + ', rama all price: ' + ramaAllPrice);
+        console.log('steklopaket koof ploshady: ' + ploshadOkon + ', cena steklopaketa: ' + steklopaketCena + ', obshaya stoimost: ' + steklopaketAllPrice);
+        console.log('stvorki all price: ' + stvorkiAllPrice);
+
+        console.log('------------------------------------------------------------');
+
+        /* /consoles info about item */
+
 
     }
 
