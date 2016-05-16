@@ -252,13 +252,16 @@ try{
             var otlivCena = parseFloat($('.otliv-dlina').val()/1000) * chossenProfile.otlivCoof[parseFloat($('.otliv-shirina option:checked').val())];
 
             var podoconicCena = parseFloat($('.podoconic-dlina').val());
+
+            var podoconicShirinaCena = chossenProfile.podoconicCoof[tipPodoconikaIndex][$('.podoconic-shirina option:checked').val()];
+
             /* old formula:
             var podoconicCena = parseFloat($('.podoconic-dlina').val()/1000) * chossenProfile.podoconicCoof[tipPodoconikaIndex][$('.podoconic-shirina option:checked').val()];
             */
             if($('.calculator-tabs-item.active label').data('door')){
                 podoconicCena = podoconicCena + doorWidth + 200;
             }
-            podoconicCena = parseFloat(podoconicCena/1000)*chossenProfile.podoconicCoof[tipPodoconikaIndex][$('.podoconic-shirina option:checked').val()];
+            podoconicCena = parseFloat(podoconicCena/1000)*podoconicShirinaCena;
 
         /* /stoimost otliva i podokonika */
 
@@ -294,8 +297,9 @@ try{
                 //old formula
                 otkosCena = (((windowHeight+(windowWidth - atributesForProgrammer.izmenshenieShiriniOtkosaOtShiriniOkna))*2)/1000)*atributesForProgrammer.koofOtkosaZaTipomDoma[tipDomaIndex];
                 */
-                otkosCena = ((windowWidth/1000)+(windowHeight/1000)*2)*((podoconicCena-atributesForProgrammer.izmenshenieShiriniOtkosaOtShiriniOkna)/1000)*700;
-                console.log(otkosCena, ' - cena otkosa.');
+
+                otkosCena = ((windowWidth/1000)+(windowHeight/1000)*2)*((podoconicShirinaCena-atributesForProgrammer.izmenshenieShiriniOtkosaOtShiriniOkna)/1000)*700;
+
             }
 
         /* /otdelka otkosov formula */
